@@ -10,7 +10,7 @@ export interface ServicePackage {
 export const services: ServicePackage[] = [
 	{
 		name: 'QUICK CONSULT',
-		price: 149,
+		price: 249,
 		duration: '15 MIN',
 		tag: '[AVAILABLE]',
 		features: [
@@ -22,7 +22,7 @@ export const services: ServicePackage[] = [
 	},
 	{
 		name: 'STRATEGY SESSION',
-		price: 299,
+		price: 399,
 		duration: '30 MIN',
 		tag: '[POPULAR]',
 		featured: true,
@@ -36,7 +36,7 @@ export const services: ServicePackage[] = [
 	},
 	{
 		name: 'COMPREHENSIVE',
-		price: 499,
+		price: 699,
 		duration: '60 MIN',
 		tag: '[FULL ACCESS]',
 		features: [
