@@ -1,0 +1,210 @@
+/* ============================================================
+   SXS.IO — TVA-Inspired Design System
+   Dark terminal aesthetic: orange/amber on near-black
+   ============================================================ */
+
+/* --- Color Tokens --- */
+:root {
+	/* Backgrounds */
+	--bg-primary: #1a0f0a; /* Very dark brown-black — main page bg */
+	--bg-secondary: #1f1208; /* Slightly lighter — card/box bg */
+	--bg-elevated: #261508; /* Hover states, active boxes */
+
+	/* Text */
+	--text-primary: #ff8c00; /* Dark orange — body text */
+	--text-accent: #ffa500; /* Bright orange — headings, labels */
+	--text-highlight: #ffb347; /* Light orange — hover, emphasis */
+	--text-dim: #a0522d; /* Sienna — secondary text, metadata */
+	--text-muted: #6b3a1f; /* Very dimmed — placeholder, inactive */
+
+	/* Borders */
+	--border-primary: #8b4513; /* Saddle brown — default box borders */
+	--border-bright: #ff8c00; /* Orange — focused/active borders */
+	--border-dim: #3a1c0a; /* Dark — subtle dividers */
+
+	/* Semantic */
+	--color-error: #ff4500;
+	--color-success: #ff8c00;
+	--color-warning: #ffa500;
+	--color-info: #d2691e;
+
+	/* Typography */
+	--font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+	--font-display: 'Mr Dafoe', cursive;
+
+	/* Spacing Scale */
+	--space-xs: 0.25rem; /*  4px */
+	--space-sm: 0.5rem; /*  8px */
+	--space-md: 1rem; /* 16px */
+	--space-lg: 1.5rem; /* 24px */
+	--space-xl: 2rem; /* 32px */
+	--space-2xl: 3rem; /* 48px */
+	--space-3xl: 4rem; /* 64px */
+
+	/* Layout */
+	--max-width: 1100px;
+	--section-padding: 5rem 1.5rem;
+	--header-height: 60px;
+
+	/* Transitions */
+	--transition-fast: 150ms ease;
+	--transition-normal: 250ms ease;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+}
+
+body {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	font-family: var(--font-mono);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	/* Subtle horizontal scan-line texture */
+	background-image: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 2px,
+		rgba(255, 140, 0, 0.012) 2px,
+		rgba(255, 140, 0, 0.012) 4px
+	);
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--text-accent);
+	font-family: var(--font-mono);
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+p {
+	color: var(--text-dim);
+	line-height: 1.8;
+}
+
+a {
+	color: var(--text-accent);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+a:hover {
+	color: var(--text-highlight);
+}
+
+code,
+pre {
+	font-family: var(--font-mono);
+}
+
+/* --- Layout Utilities --- */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 var(--space-lg);
+}
+
+/* --- Section Base --- */
+.section {
+	padding: var(--section-padding);
+	border-bottom: 1px solid var(--border-dim);
+}
+
+/* --- Button Components --- */
+.btn {
+	display: inline-block;
+	padding: var(--space-sm) var(--space-lg);
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all var(--transition-fast);
+	border: none;
+	text-align: center;
+}
+
+.btn--primary {
+	background: var(--text-primary);
+	color: var(--bg-primary);
+}
+.btn--primary:hover {
+	background: var(--text-highlight);
+	color: var(--bg-primary);
+}
+
+.btn--ghost {
+	background: transparent;
+	color: var(--text-primary);
+	border: 1px solid var(--border-primary);
+}
+.btn--ghost:hover {
+	border-color: var(--text-primary);
+	color: var(--text-highlight);
+}
+
+/* --- Glow utility --- */
+.glow {
+	text-shadow:
+		0 0 10px rgba(255, 140, 0, 0.6),
+		0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+/* --- Animations --- */
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
+}
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
