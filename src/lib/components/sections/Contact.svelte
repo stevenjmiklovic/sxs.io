@@ -33,12 +33,12 @@
 				<TerminalBox title="QUICK LINKS">
 					<ul class="links-list">
 						<li>
-							<a href="https://github.com/sxs" target="_blank" rel="noopener noreferrer">
+							<a href="https://github.com/kryptik-research" target="_blank" rel="noopener noreferrer">
 								<span class="link-icon">→</span> GITHUB
 							</a>
 						</li>
 						<li>
-							<a href="mailto:hello@sxs.io">
+							<a href="mailto:github@sxs.io">
 								<span class="link-icon">→</span> EMAIL
 							</a>
 						</li>
