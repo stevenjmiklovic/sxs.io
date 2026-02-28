@@ -43,13 +43,13 @@
 
 			<div class="about-bio">
 				<p>
-					Most AI failures aren't model failures — they're integration failures. Teams reach for LLMs
-					where schemas would suffice, or over-engineer rule systems where a well-prompted model
-					would generalize. The hard work is knowing the difference.
+					Every AI system has a seam. On one side: behavior you can specify. On the other: behavior
+					that has to be learned. Where that line falls — and how carefully it's drawn — determines
+					whether a system is debuggable, composable, and maintainable, or brittle in ways that compound.
 				</p>
 				<p>
-					SXS operates at the seam between symbolic and subsymbolic systems: what can be specified
-					and what must be learned, held in tension and engineered together.
+					SXS works at that seam — designing the structure that contains the model, and the model
+					behavior that fills the gaps structure can't.
 				</p>
 
 				<div class="expertise-grid">

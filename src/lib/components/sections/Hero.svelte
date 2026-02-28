@@ -31,7 +31,7 @@
 			</h1>
 
 			<p class="hero__description">
-				Engineering at the intersection of explicit structure and emergent intelligence.<br />
+				Engineering systems where explicit structure meets learned behavior.<br />
 				Build what you can specify. Learn what you can't.
 			</p>
 
