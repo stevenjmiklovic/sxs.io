@@ -11,7 +11,7 @@
 	<title>SXS — Symbolic × Subsymbolic</title>
 	<meta
 		name="description"
-		content="Engineering at the intersection of explicit structure and emergent intelligence. Build what you can specify. Learn what you can't."
+		content="Architecture, integration, and evaluation for production AI systems. Current work spans agent tooling, knowledge artifacts, intelligence interfaces, and systems software."
 	/>
 </svelte:head>
 

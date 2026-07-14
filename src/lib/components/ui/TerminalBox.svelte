@@ -4,81 +4,78 @@
 	export let variant: 'default' | 'featured' | 'dim' = 'default';
 </script>
 
-<div class="terminal-box" class:featured={variant === 'featured'} class:dim={variant === 'dim'}>
-	{#if title}
-		<div class="terminal-box__header">
-			<span class="terminal-box__title">▸ {title}</span>
-			{#if label}
-				<span class="terminal-box__label">{label}</span>
-			{/if}
-		</div>
-		<div class="terminal-box__divider" aria-hidden="true">
-			{'─'.repeat(80)}
+<div class="panel" class:featured={variant === 'featured'} class:dim={variant === 'dim'}>
+	{#if title || label}
+		<div class="panel__header">
+			{#if title}<span class="panel__title">{title}</span>{/if}
+			{#if label}<span class="panel__label">{label}</span>{/if}
 		</div>
 	{/if}
-	<div class="terminal-box__body">
+	<div class="panel__body">
 		<slot />
 	</div>
 </div>
 
 <style>
-	.terminal-box {
-		border: 1px solid var(--border-primary);
-		background: var(--bg-secondary);
-		padding: var(--space-lg);
-		transition:
-			border-color var(--transition-normal),
-			background var(--transition-normal),
-			box-shadow var(--transition-normal);
-		height: 100%;
+	.panel {
 		display: flex;
+		height: 100%;
 		flex-direction: column;
+		padding: 1.5rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		background: rgba(255, 255, 255, 0.66);
+		transition:
+			background var(--transition-normal),
+			border-color var(--transition-normal),
+			box-shadow var(--transition-normal),
+			transform var(--transition-normal);
 	}
-	.terminal-box:hover {
-		border-color: var(--border-bright);
-		background: var(--bg-elevated);
+
+	.panel:hover {
+		border-color: var(--line-strong);
+		background: var(--paper-raised);
+		box-shadow: 0 14px 34px rgba(17, 25, 20, 0.07);
+		transform: translateY(-3px);
 	}
-	.terminal-box.featured {
-		border-color: var(--text-accent);
-		box-shadow: 0 0 24px rgba(255, 140, 0, 0.12);
+
+	.panel.featured {
+		border-color: rgba(23, 92, 211, 0.34);
+		background: linear-gradient(150deg, var(--paper-raised), var(--cobalt-soft));
 	}
-	.terminal-box.featured:hover {
-		box-shadow: 0 0 32px rgba(255, 140, 0, 0.2);
-	}
-	.terminal-box.dim {
+
+	.panel.dim {
 		opacity: 0.65;
 	}
-	.terminal-box__header {
+
+	.panel__header {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		margin-bottom: var(--space-sm);
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1.4rem;
+		padding-bottom: 0.9rem;
+		border-bottom: 1px solid var(--line);
 	}
-	.terminal-box__title {
-		color: var(--text-accent);
+
+	.panel__title {
+		font-size: 0.9rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+
+	.panel__label {
+		font-family: var(--font-mono);
+		font-size: 0.59rem;
 		font-weight: 700;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		font-size: 0.875rem;
+		color: var(--cobalt);
 	}
-	.terminal-box__label {
-		color: var(--text-dim);
-		font-size: 0.7rem;
-		border: 1px solid var(--border-dim);
-		padding: 2px 6px;
-		letter-spacing: 0.05em;
-	}
-	.terminal-box__divider {
-		color: var(--border-dim);
-		font-size: 0.65rem;
-		margin-bottom: var(--space-md);
-		overflow: hidden;
-		white-space: nowrap;
-		line-height: 1;
-	}
-	.terminal-box__body {
-		flex: 1;
+
+	.panel__body {
 		display: flex;
+		flex: 1;
 		flex-direction: column;
 	}
 </style>

@@ -1,67 +1,76 @@
 export interface Project {
 	name: string;
 	description: string;
+	role: string;
+	year: string;
 	url?: string;
-	repo?: string;
+	repo: string;
 	tags: string[];
-	status: 'ACTIVE' | 'ARCHIVED' | 'ONGOING';
+	status: 'BUILDING' | 'LIVE' | 'CONTRIBUTING' | 'MAINTAINED';
+	featured?: boolean;
 }
 
 export const projects: Project[] = [
 	{
-		name: 'DISCORDCLAW',
+		name: 'PERFECTSTAR 2K',
 		description:
-			'An AI crustacean adapted to the Discord biome. Autonomous agent that navigates server ecology with natural grip.',
-		repo: 'https://github.com/kryptik-research/discordclaw',
-		tags: ['AI', 'Discord', 'Agent'],
-		status: 'ACTIVE'
+			'A modern, daily-driver terminal writing environment inspired by WordStar and WordPerfect. Home-row commands, persistent sessions, Reveal Codes, spellcheck, and manuscript-ready RTF export—built in Rust.',
+		role: 'Original product',
+		year: '2026',
+		repo: 'https://github.com/stevenjmiklovic/PerfectStar-2k',
+		tags: ['Rust', 'Ratatui', 'Writing tools'],
+		status: 'BUILDING',
+		featured: true
 	},
 	{
-		name: 'CLAUDE-SKILLS',
+		name: 'ADR POWER',
 		description:
-			'Skill marketplace for Claude Code. Composable, shareable capabilities that extend the agent beyond its defaults.',
-		repo: 'https://github.com/stevenjmiklovic/claude-skills',
-		tags: ['Claude', 'AI', 'MCP'],
-		status: 'ACTIVE'
+			'A portable agent capability for creating, reviewing, cross-referencing, and updating architecture decision records inside a codebase.',
+		role: 'Thinking Sage · Agent capability',
+		year: '2026',
+		repo: 'https://github.com/thinkingsage/adr-power',
+		tags: ['Architecture', 'ADRs', 'Agent workflows'],
+		status: 'BUILDING'
 	},
 	{
-		name: 'KIRO-POWERS',
+		name: 'CONTEXT BAZAAR · KANON',
 		description:
-			'Power marketplace for Kiro. Composable, shareable capabilities that extend the agent beyond its defaults.',
-		repo: 'https://github.com/stevenjmiklovic/kiro-powers',
-		tags: ['Kiro', 'AI', 'IDE'],
-		status: 'ACTIVE'
+			'A canonical knowledge-artifact system for AI coding assistants. Author a skill, rule, workflow, or agent once; Kanon validates and compiles it for Codex, Claude Code, Kiro, Copilot, Cursor, Windsurf, Cline, and Q Developer.',
+		role: 'Thinking Sage · Platform',
+		year: '2026',
+		repo: 'https://github.com/thinkingsage/context-bazaar',
+		tags: ['TypeScript', 'Bun', 'Multi-harness agents'],
+		status: 'BUILDING'
 	},
 	{
-		name: 'KORAFEX',
+		name: 'WORLD MONITOR · SXS',
 		description:
-			'Experimental research substrate from the kryptik lab. Probes the lattice where symbolic structure dissolves into learned behavior.',
-		repo: 'https://github.com/kryptik-research/korafex',
-		tags: ['Research', 'kryptik'],
-		status: 'ONGOING'
+			'An SXS product variant of the real-time global intelligence dashboard: AI-synthesized briefs, 45 map layers, five focused views, and native desktop builds.',
+		role: 'Product variant / maintained fork',
+		year: '2026',
+		url: 'https://sxs.exarcos.net',
+		repo: 'https://github.com/stevenjmiklovic/worldmonitor',
+		tags: ['TypeScript', 'Tauri', 'Geospatial AI'],
+		status: 'LIVE'
 	},
 	{
-		name: 'KRYPTIK.IT',
+		name: 'RHIZA',
 		description:
-			'Web presence for the kryptik-research collective. A signal in the noise — minimal surface, deep interior.',
-		repo: 'https://github.com/kryptik-research/kryptik.it',
-		tags: ['SvelteKit', 'kryptik'],
-		status: 'ACTIVE'
+			'An AI-assisted etymology explorer that traces the Greek roots of English words and turns their relationships into interactive, clustered graphs.',
+		role: 'Thinking Sage · Research product',
+		year: '2026',
+		repo: 'https://github.com/thinkingsage/rhiza',
+		tags: ['SvelteKit', 'FastAPI', 'Neo4j'],
+		status: 'BUILDING'
 	},
 	{
-		name: 'SXS.IO',
+		name: 'BYRON POWERS',
 		description:
-			'This site. SvelteKit static site with TVA-inspired design system. No CSS frameworks — just structure and intent.',
-		repo: 'https://github.com/stevenjmiklovic/sxs.io',
-		tags: ['SvelteKit', 'TypeScript', 'Vite'],
-		status: 'ACTIVE'
-	},
-	{
-		name: 'VIBES',
-		description:
-			'A living document of aesthetic signal. Collected influences, sonic anchors, and raw creative material that shapes everything else.',
-		repo: 'https://github.com/stevenjmiklovic/Vibes',
-		tags: ['Personal', 'Curation'],
-		status: 'ONGOING'
+			'Eight literary and publishing workflows for novelists, technical authors, agents, and proofreaders—distributed as reusable AI capabilities.',
+		role: 'Thinking Sage · Creative tooling',
+		year: '2026',
+		repo: 'https://github.com/thinkingsage/byron-powers',
+		tags: ['Writing', 'Publishing', 'Agent workflows'],
+		status: 'MAINTAINED'
 	}
 ];

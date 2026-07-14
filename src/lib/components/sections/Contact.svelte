@@ -1,251 +1,216 @@
 <script lang="ts">
 	import SectionHeader from '$lib/components/ui/SectionHeader.svelte';
-	import TerminalBox from '$lib/components/ui/TerminalBox.svelte';
 	import { reveal } from '$lib/utils/observe';
-
-	let name = '';
-	let email = '';
-	let message = '';
-	let submitted = false;
-	let submitting = false;
-
-	async function handleSubmit(e: SubmitEvent) {
-		e.preventDefault();
-		submitting = true;
-		// Placeholder: wire to a form backend (Formspree, Netlify Forms, etc.)
-		await new Promise((r) => setTimeout(r, 800));
-		submitted = true;
-		submitting = false;
-	}
 </script>
 
-<section class="section" id="contact" aria-labelledby="contact-header">
+<section class="section contact" id="contact" aria-labelledby="contact-header">
 	<div class="container">
 		<SectionHeader
 			id="contact-header"
-			index="05"
-			title="CONTACT"
-			subtitle="// Available for consulting engagements and technical conversations."
+			eyebrow="Next step"
+			title="Bring the constraint, not the pitch deck."
+			subtitle="A useful first note is short: what you're building, where it breaks, and the decision that needs to be made."
 		/>
 
 		<div class="contact-grid" use:reveal>
-			<div class="contact-info">
-				<TerminalBox title="QUICK LINKS">
-					<ul class="links-list">
-						<li>
-							<a href="https://github.com/kryptik-research" target="_blank" rel="noopener noreferrer">
-								<span class="link-icon">→</span> GITHUB
-							</a>
-						</li>
-						<li>
-							<a href="mailto:github@sxs.io">
-								<span class="link-icon">→</span> EMAIL
-							</a>
-						</li>
-					</ul>
+			<div class="contact-brief">
+				<p class="contact-brief__label">A strong first message includes</p>
+				<ol>
+					<li><span>01</span>The system or feature in one sentence.</li>
+					<li><span>02</span>The current technical constraint.</li>
+					<li><span>03</span>The decision or outcome you need.</li>
+				</ol>
 
-					<div class="contact-meta">
-						<div class="meta-row">
-							<span class="meta-label">AVAILABILITY</span>
-							<span class="meta-value available">OPEN</span>
-						</div>
-						<div class="meta-row">
-							<span class="meta-label">TIMEZONE</span>
-							<span class="meta-value">ALL ZONES</span>
-						</div>
-						<div class="meta-row">
-							<span class="meta-label">RESPONSE</span>
-							<span class="meta-value">&lt; 24 HRS</span>
-						</div>
-						<div class="meta-row">
-							<span class="meta-label">FORMAT</span>
-							<span class="meta-value">REMOTE</span>
-						</div>
-					</div>
-				</TerminalBox>
+				<div class="contact-meta">
+					<p>
+						<span>Availability</span><strong><i aria-hidden="true"></i> Select projects</strong>
+					</p>
+					<p><span>Format</span><strong>Remote / global</strong></p>
+					<p><span>Response</span><strong>Within 1 business day</strong></p>
+				</div>
 			</div>
 
-			<div class="contact-form-wrap">
-				<TerminalBox title="SEND MESSAGE">
-					{#if submitted}
-						<div class="form-success">
-							<p class="success-icon">█ MESSAGE RECEIVED</p>
-							<p>I'll be in touch within 24 hours.</p>
-						</div>
-					{:else}
-						<form class="contact-form" on:submit={handleSubmit} novalidate>
-							<div class="field">
-								<label for="contact-name" class="field-label">NAME</label>
-								<input
-									id="contact-name"
-									type="text"
-									class="field-input"
-									bind:value={name}
-									placeholder="Your name"
-									required
-									autocomplete="name"
-								/>
-							</div>
+			<div class="contact-action">
+				<p class="contact-action__kicker">Open a direct thread</p>
+				<a
+					class="contact-email"
+					href="mailto:github@sxs.io?subject=SXS%20project%20inquiry"
+					aria-label="Email SXS at github@sxs.io"
+				>
+					<span>github@sxs.io</span>
+					<span aria-hidden="true">↗</span>
+				</a>
+				<p class="contact-action__note">No intake portal. No message that pretends it was sent.</p>
 
-							<div class="field">
-								<label for="contact-email" class="field-label">EMAIL</label>
-								<input
-									id="contact-email"
-									type="email"
-									class="field-input"
-									bind:value={email}
-									placeholder="your@email.com"
-									required
-									autocomplete="email"
-								/>
-							</div>
-
-							<div class="field">
-								<label for="contact-message" class="field-label">MESSAGE</label>
-								<textarea
-									id="contact-message"
-									class="field-input field-textarea"
-									bind:value={message}
-									placeholder="Tell me about your project..."
-									rows="5"
-									required
-								></textarea>
-							</div>
-
-							<button type="submit" class="btn btn--primary submit-btn" disabled={submitting}>
-								{submitting ? 'SENDING...' : 'SEND MESSAGE →'}
-							</button>
-						</form>
-					{/if}
-				</TerminalBox>
+				<div class="contact-links">
+					<a href="https://github.com/stevenjmiklovic" target="_blank" rel="noopener noreferrer">
+						Personal GitHub ↗
+					</a>
+					<a href="https://github.com/thinkingsage" target="_blank" rel="noopener noreferrer">
+						Thinking Sage ↗
+					</a>
+					<a href="https://github.com/kryptik-research" target="_blank" rel="noopener noreferrer">
+						Kryptik Research ↗
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <style>
+	.contact {
+		background:
+			radial-gradient(circle at 80% 70%, rgba(111, 224, 181, 0.28), transparent 27rem),
+			var(--cobalt-soft);
+	}
+
 	.contact-grid {
 		display: grid;
-		grid-template-columns: 280px 1fr;
-		gap: var(--space-2xl);
-		align-items: start;
+		grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+		gap: clamp(2.5rem, 7vw, 6rem);
+		align-items: stretch;
 	}
-	.links-list {
-		list-style: none;
+
+	.contact-brief {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-sm);
-		margin-bottom: var(--space-xl);
-		padding-bottom: var(--space-lg);
-		border-bottom: 1px solid var(--border-dim);
 	}
-	.links-list a {
-		font-size: 0.82rem;
+
+	.contact-brief__label,
+	.contact-action__kicker {
+		font-family: var(--font-mono);
+		font-size: 0.62rem;
 		font-weight: 700;
-		letter-spacing: 0.1em;
-		color: var(--text-dim);
+		text-transform: uppercase;
+		color: var(--cobalt);
+	}
+
+	.contact-brief ol {
+		display: grid;
+		gap: 0;
+		margin-top: 1.2rem;
+		list-style: none;
+	}
+
+	.contact-brief li {
+		display: grid;
+		grid-template-columns: 2rem 1fr;
+		gap: 0.85rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid rgba(23, 92, 211, 0.2);
+		font-size: 0.88rem;
+		color: var(--ink-soft);
+	}
+
+	.contact-brief li span {
+		font-family: var(--font-mono);
+		font-size: 0.58rem;
+		color: var(--cobalt);
+	}
+
+	.contact-meta {
+		display: grid;
+		gap: 0.6rem;
+		margin-top: auto;
+		padding-top: 2rem;
+	}
+
+	.contact-meta p {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		font-family: var(--font-mono);
+		font-size: 0.58rem;
+		color: var(--graphite);
+	}
+
+	.contact-meta strong {
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
+		gap: 0.4rem;
+		font-weight: 500;
+		color: var(--ink);
+	}
+
+	.contact-meta i {
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--signal-deep);
+	}
+
+	.contact-action {
+		display: flex;
+		min-height: 360px;
+		flex-direction: column;
+		padding: clamp(1.5rem, 5vw, 3rem);
+		border: 1px solid rgba(23, 92, 211, 0.25);
+		border-radius: var(--radius-lg);
+		background: rgba(255, 255, 255, 0.72);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.contact-email {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-top: 2.2rem;
+		padding-bottom: 1rem;
+		border-bottom: 2px solid var(--ink);
+		font-size: clamp(1.4rem, 4vw, 3rem);
+		font-weight: 600;
+		letter-spacing: -0.045em;
+		color: var(--ink);
 		transition: color var(--transition-fast);
 	}
-	.links-list a:hover {
-		color: var(--text-highlight);
-	}
-	.link-icon {
-		color: var(--text-primary);
-	}
-	.contact-meta {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-	}
-	.meta-row {
-		display: grid;
-		grid-template-columns: 100px 1fr;
-		gap: var(--space-sm);
-		font-size: 0.75rem;
-	}
-	.meta-label {
-		color: var(--text-muted);
-		letter-spacing: 0.08em;
-	}
-	.meta-value {
-		color: var(--text-dim);
-	}
-	.meta-value.available {
-		color: var(--text-accent);
-		font-weight: 700;
+
+	.contact-email:hover {
+		color: var(--cobalt);
 	}
 
-	/* Form styles */
-	.contact-form {
+	.contact-action__note {
+		margin-top: 1rem;
+		font-size: 0.78rem;
+		color: var(--graphite);
+	}
+
+	.contact-links {
 		display: flex;
-		flex-direction: column;
-		gap: var(--space-lg);
-	}
-	.field {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xs);
-	}
-	.field-label {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		color: var(--text-dim);
-	}
-	.field-input {
-		background: var(--bg-primary);
-		border: 1px solid var(--border-primary);
-		color: var(--text-primary);
+		flex-wrap: wrap;
+		gap: 1.2rem;
+		margin-top: auto;
+		padding-top: 2.5rem;
 		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		padding: var(--space-sm) var(--space-md);
-		outline: none;
-		transition: border-color var(--transition-fast);
-		width: 100%;
-	}
-	.field-input::placeholder {
-		color: var(--text-muted);
-	}
-	.field-input:focus {
-		border-color: var(--border-bright);
-	}
-	.field-textarea {
-		resize: vertical;
-		min-height: 120px;
-	}
-	.submit-btn {
-		width: 100%;
-	}
-	.submit-btn:disabled {
-		opacity: 0.6;
-		cursor: not-allowed;
+		font-size: 0.62rem;
+		font-weight: 600;
+		color: var(--cobalt);
 	}
 
-	/* Success state */
-	.form-success {
-		text-align: center;
-		padding: var(--space-2xl) 0;
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-	.success-icon {
-		color: var(--text-accent);
-		font-size: 1rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-	}
-	.form-success p:last-child {
-		color: var(--text-dim);
-		font-size: 0.85rem;
+	.contact-links a:hover {
+		color: var(--cobalt-deep);
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 780px) {
 		.contact-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.contact-meta {
+			margin-top: 1rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.contact-meta p {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.contact-email {
+			font-size: 1.25rem;
 		}
 	}
 </style>

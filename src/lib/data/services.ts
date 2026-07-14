@@ -14,10 +14,10 @@ export const services: ServicePackage[] = [
 		duration: '15 MIN',
 		tag: '[AVAILABLE]',
 		features: [
-			'Architecture review',
-			'Targeted technical guidance',
-			'Written action items',
-			'Resource recommendations'
+			'Unblock one specific technical decision',
+			'Direct answer on architecture or tooling',
+			'Written action items you can hand to your team',
+			'Curated resources — no homework required'
 		]
 	},
 	{
@@ -27,11 +27,11 @@ export const services: ServicePackage[] = [
 		tag: '[POPULAR]',
 		featured: true,
 		features: [
-			'Deep-dive system design',
-			'AI/ML integration planning',
-			'Infrastructure assessment',
-			'Implementation roadmap',
-			'Follow-up support'
+			'Map your AI feature from demo to production',
+			'Integration plan for LLMs, agents, and RAG',
+			'Risk assessment: where it will break first',
+			'Prioritized implementation roadmap',
+			'Async follow-up on open questions'
 		]
 	},
 	{
@@ -40,11 +40,11 @@ export const services: ServicePackage[] = [
 		duration: '60 MIN',
 		tag: '[FULL ACCESS]',
 		features: [
-			'Full system architecture audit',
-			'Multi-service coordination',
-			'Custom tooling recommendations',
-			'Team enablement guidance',
-			'30-day async support',
+			'Full architecture audit with written findings',
+			'Eval strategy so you can prove it works',
+			'Tooling recommendations matched to your team',
+			'Enablement plan to make your team self-sufficient',
+			'30-day async support while you implement',
 			'Code review included'
 		]
 	}

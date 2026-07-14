@@ -1,24 +1,38 @@
 export interface StackCategory {
 	label: string;
+	description: string;
 	items: string[];
 }
 
 export const stack: StackCategory[] = [
-	{ label: 'LANGUAGES', items: ['TypeScript', 'Rust', 'Python', 'Go'] },
-	{ label: 'RUNTIMES', items: ['Node.js', 'Bun', 'Deno'] },
-	{ label: 'FRONTEND', items: ['SvelteKit', 'Vite', 'Web Components'] },
-	{ label: 'BACKEND', items: ['Hono', 'FastAPI', 'tRPC', 'gRPC'] },
-	{ label: 'DATA', items: ['PostgreSQL', 'Solr', 'Redis', 'Neo4j'] },
 	{
-		label: 'INFRA / CLOUD',
-		items: ['Netbird.io', 'Cloudflare', 'AWS', 'GCP', 'OpenTofu']
+		label: 'AI SYSTEMS',
+		description: 'Models are components, not architecture.',
+		items: ['OpenAI Codex', 'Claude', 'Kiro', 'MCP', 'Ollama', 'RAG + evals']
 	},
 	{
-		label: 'AI / ML',
-		items: ['Anthropic Claude', 'Bedrock', 'Korafex', 'Agents', 'MCP']
+		label: 'LANGUAGES',
+		description: 'Chosen for the shape of the system.',
+		items: ['TypeScript', 'Rust', 'Python', 'Go']
 	},
 	{
-		label: 'TOOLING',
-		items: ['Claude Code', 'Kiro', 'Discord', 'GitHub Actions']
+		label: 'INTERFACES',
+		description: 'Web, desktop, terminal, and data-rich UI.',
+		items: ['SvelteKit', 'Vite', 'Tauri', 'Ratatui', 'D3.js']
+	},
+	{
+		label: 'PLATFORM',
+		description: 'Deployment that the operating team can own.',
+		items: ['AWS + Bedrock', 'Cloudflare', 'Vercel', 'Docker', 'GitHub Actions']
+	},
+	{
+		label: 'DATA',
+		description: 'Structured for traceability and change.',
+		items: ['PostgreSQL', 'Neo4j', 'Redis', 'Protobuf', 'Vector search']
+	},
+	{
+		label: 'PRACTICE',
+		description: 'The controls that keep a demo operable.',
+		items: ['Architecture', 'ADRs', 'Observability', 'Security', 'CI/CD']
 	}
 ];

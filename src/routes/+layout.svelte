@@ -18,6 +18,6 @@
 
 <style>
 	main {
-		padding-top: var(--header-height);
+		display: block;
 	}
 </style>

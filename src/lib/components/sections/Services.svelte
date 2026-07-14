@@ -5,108 +5,165 @@
 	import { reveal } from '$lib/utils/observe';
 </script>
 
-<section class="section" id="services" aria-labelledby="services-header">
+<section class="section services" id="services" aria-labelledby="services-header">
 	<div class="container">
 		<SectionHeader
 			id="services-header"
-			index="02"
-			title="CONSULTING SERVICES"
-			subtitle="// Direct engagement across the symbolic–subsymbolic stack. No middlemen."
+			eyebrow="Engagements"
+			title="Get to a sound decision faster."
+			subtitle="Focused technical sessions for a live decision, an AI feature moving toward production, or a system that needs a deeper audit."
 		/>
 
 		<div class="services-grid" use:reveal>
-			{#each services as pkg}
+			{#each services as pkg, index}
 				<div class="service-card-wrap">
-					<TerminalBox title={pkg.name} label={pkg.tag ?? ''} variant={pkg.featured ? 'featured' : 'default'}>
+					<TerminalBox
+						title={pkg.name}
+						label={pkg.featured ? 'Most useful' : `0${index + 1}`}
+						variant={pkg.featured ? 'featured' : 'default'}
+					>
 						<div class="pkg-price">
 							<span class="pkg-amount">${pkg.price}</span>
-							<span class="pkg-duration">/ {pkg.duration}</span>
+							<span class="pkg-duration">{pkg.duration.toLowerCase()}</span>
 						</div>
 
 						<ul class="pkg-features">
 							{#each pkg.features as feat}
-								<li>
-									<span class="feat-arrow">►</span>
-									<span>{feat}</span>
-								</li>
+								<li><span aria-hidden="true">✓</span>{feat}</li>
 							{/each}
 						</ul>
 
-						<div class="pkg-action">
-							<a href="#contact" class="btn" class:btn--primary={pkg.featured} class:btn--ghost={!pkg.featured}>
-								{pkg.featured ? 'BOOK SESSION' : 'ENQUIRE →'}
-							</a>
-						</div>
+						<a href="#contact" class="pkg-action" aria-label={`Discuss the ${pkg.name} engagement`}>
+							Discuss this engagement <span aria-hidden="true">↗</span>
+						</a>
 					</TerminalBox>
 				</div>
 			{/each}
 		</div>
 
-		<p class="services-note">
-			All sessions are remote. Booking confirmed within 24 hours. All time zones supported.
-		</p>
+		<div class="services-note">
+			<p><strong>Remote by default.</strong> A short written brief follows every session.</p>
+			<p>
+				Need an embedded engagement? <a href="#contact"
+					>Start with the system and the constraint ↗</a
+				>
+			</p>
+		</div>
 	</div>
 </section>
 
 <style>
+	.services {
+		background: var(--paper);
+	}
+
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: var(--space-lg);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--space-md);
 		align-items: stretch;
 	}
+
 	.service-card-wrap {
-		display: flex;
-		flex-direction: column;
+		min-width: 0;
 	}
+
 	.pkg-price {
-		margin-bottom: var(--space-lg);
-		padding-bottom: var(--space-md);
-		border-bottom: 1px solid var(--border-dim);
-	}
-	.pkg-amount {
-		font-size: 2.25rem;
-		font-weight: 700;
-		color: var(--text-accent);
-		line-height: 1;
-	}
-	.pkg-duration {
-		color: var(--text-muted);
-		font-size: 0.8rem;
-		margin-left: var(--space-sm);
-	}
-	.pkg-features {
-		list-style: none;
-		color: var(--text-dim);
-		font-size: 0.82rem;
-		line-height: 1;
-		margin-bottom: var(--space-xl);
-		flex: 1;
 		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-	}
-	.pkg-features li {
-		display: flex;
-		gap: var(--space-sm);
 		align-items: baseline;
+		gap: 0.6rem;
+		margin-bottom: 1.6rem;
 	}
-	.feat-arrow {
-		color: var(--text-primary);
-		flex-shrink: 0;
+
+	.pkg-amount {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 600;
+		line-height: 1;
+		letter-spacing: -0.055em;
+		color: var(--ink);
+	}
+
+	.pkg-duration {
+		font-family: var(--font-mono);
+		font-size: 0.62rem;
+		color: var(--graphite);
+	}
+
+	.pkg-features {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin-bottom: 2rem;
+		list-style: none;
+		font-size: 0.83rem;
+		line-height: 1.5;
+		color: var(--ink-soft);
+	}
+
+	.pkg-features li {
+		display: grid;
+		grid-template-columns: 1rem 1fr;
+		gap: 0.45rem;
+	}
+
+	.pkg-features li span {
+		font-family: var(--font-mono);
 		font-size: 0.65rem;
+		color: var(--signal-deep);
 	}
+
 	.pkg-action {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		margin-top: auto;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line);
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: var(--cobalt);
 	}
-	.pkg-action .btn {
-		width: 100%;
+
+	.pkg-action:hover {
+		color: var(--cobalt-deep);
 	}
+
 	.services-note {
-		margin-top: var(--space-xl);
-		color: var(--text-muted);
-		font-size: 0.75rem;
-		letter-spacing: 0.05em;
-		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-top: 1.5rem;
+		padding: 1.1rem 1.25rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		background: var(--paper-soft);
+		font-size: 0.76rem;
+	}
+
+	.services-note p {
+		color: var(--graphite);
+	}
+
+	.services-note a {
+		font-weight: 600;
+		color: var(--cobalt);
+	}
+
+	@media (max-width: 940px) {
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.service-card-wrap {
+			max-width: 680px;
+		}
+	}
+
+	@media (max-width: 680px) {
+		.services-note {
+			flex-direction: column;
+			gap: 0.65rem;
+		}
 	}
 </style>

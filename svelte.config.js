@@ -11,14 +11,7 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		}),
-		prerender: {
-			handleHttpError: ({ path, referrer, message }) => {
-				// Ignore missing og-image (not a critical prerender error)
-				if (path === '/og-image.png') return;
-				throw new Error(message);
-			}
-		}
+		})
 	}
 };
 
