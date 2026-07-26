@@ -1,8 +1,16 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
 	let scrolled = false;
 	let menuOpen = false;
+
+	const nav = [
+		{ label: 'Products', href: '/products' },
+		{ label: 'Capabilities', href: '/capabilities' },
+		{ label: 'Factory', href: '/factory' },
+		{ label: 'Notes', href: '/notes' }
+	];
 
 	onMount(() => {
 		const handler = () => {
@@ -13,39 +21,38 @@
 		return () => window.removeEventListener('scroll', handler);
 	});
 
-	const nav = [
-		{ label: 'Approach', href: '#about' },
-		{ label: 'Services', href: '#services' },
-		{ label: 'Work', href: '#projects' },
-		{ label: 'Stack', href: '#stack' }
-	];
-
 	function closeMenu() {
 		menuOpen = false;
+	}
+
+	function isActive(href: string) {
+		return $page.url.pathname === href || $page.url.pathname.startsWith(`${href}/`);
 	}
 </script>
 
 <header class="site-header" class:scrolled>
 	<div class="container site-header__inner">
-		<a href="#hero" class="site-header__logo" aria-label="SXS home">
-			<span class="logo-mark">S×S</span>
-			<span class="logo-name">Systems studio</span>
+		<a href="/" class="site-header__logo" aria-label="sXs home" onclick={closeMenu}>
+			<span class="logo-mark">s×s</span>
+			<span class="logo-name">AI software factory</span>
 		</a>
 
 		<nav class="site-header__nav" aria-label="Main navigation">
 			{#each nav as { label, href }}
-				<a {href} class="nav-link">{label}</a>
+				<a {href} class="nav-link" class:active={isActive(href)}>{label}</a>
 			{/each}
 		</nav>
 
-		<a href="#contact" class="header-cta">Start a project <span aria-hidden="true">↗</span></a>
+		<a href="/work" class:active={isActive('/work')} class="header-cta">
+			Work with us <span aria-hidden="true">↗</span>
+		</a>
 
 		<button
 			class="menu-toggle"
 			aria-label={menuOpen ? 'Close menu' : 'Open menu'}
 			aria-expanded={menuOpen}
 			aria-controls="mobile-navigation"
-			on:click={() => (menuOpen = !menuOpen)}
+			onclick={() => (menuOpen = !menuOpen)}
 		>
 			<span></span><span></span>
 		</button>
@@ -54,10 +61,17 @@
 	{#if menuOpen}
 		<nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
 			{#each nav as { label, href }}
-				<a {href} class="mobile-nav__link" on:click={closeMenu}>{label}</a>
+				<a {href} class:active={isActive(href)} class="mobile-nav__link" onclick={closeMenu}>
+					{label}
+				</a>
 			{/each}
-			<a href="#contact" class="mobile-nav__link mobile-nav__link--accent" on:click={closeMenu}>
-				Start a project ↗
+			<a
+				href="/work"
+				class:active={isActive('/work')}
+				class="mobile-nav__link mobile-nav__link--accent"
+				onclick={closeMenu}
+			>
+				Work with us ↗
 			</a>
 		</nav>
 	{/if}
@@ -79,7 +93,7 @@
 
 	.site-header.scrolled {
 		border-color: rgba(174, 187, 178, 0.7);
-		background: rgba(245, 247, 244, 0.94);
+		background: rgba(245, 247, 244, 0.95);
 		box-shadow: 0 6px 30px rgba(17, 25, 20, 0.04);
 	}
 
@@ -100,14 +114,14 @@
 
 	.logo-mark {
 		font-family: var(--font-mono);
-		font-size: 0.9rem;
+		font-size: 0.92rem;
 		font-weight: 700;
 		letter-spacing: -0.08em;
 		color: var(--cobalt);
 	}
 
 	.logo-name {
-		font-size: 0.82rem;
+		font-size: 0.8rem;
 		font-weight: 600;
 		letter-spacing: -0.01em;
 	}
@@ -115,12 +129,12 @@
 	.site-header__nav {
 		display: flex;
 		align-items: center;
-		gap: 1.8rem;
+		gap: 1.65rem;
 	}
 
 	.nav-link {
 		position: relative;
-		font-size: 0.84rem;
+		font-size: 0.8rem;
 		font-weight: 500;
 		color: var(--graphite);
 		transition: color var(--transition-fast);
@@ -137,20 +151,26 @@
 		transition: transform var(--transition-fast);
 	}
 
-	.nav-link:hover {
+	.nav-link:hover,
+	.nav-link.active {
 		color: var(--ink);
 	}
 
-	.nav-link:hover::after {
+	.nav-link:hover::after,
+	.nav-link.active::after {
 		transform: scaleX(1);
 	}
 
 	.header-cta {
 		justify-self: end;
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
+		font-size: 0.66rem;
 		font-weight: 700;
 		color: var(--cobalt);
+	}
+
+	.header-cta.active {
+		color: var(--ink);
 	}
 
 	.menu-toggle,
@@ -158,7 +178,7 @@
 		display: none;
 	}
 
-	@media (max-width: 760px) {
+	@media (max-width: 820px) {
 		.site-header__inner {
 			grid-template-columns: 1fr auto;
 		}
@@ -200,6 +220,10 @@
 			padding: 0.9rem 0.5rem;
 			border-bottom: 1px solid var(--line);
 			font-size: 1rem;
+		}
+
+		.mobile-nav__link.active {
+			color: var(--cobalt);
 		}
 
 		.mobile-nav__link--accent {

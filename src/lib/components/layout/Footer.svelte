@@ -1,32 +1,51 @@
 <script lang="ts">
 	const year = new Date().getFullYear();
+
+	const links = [
+		{ label: 'Personal', href: 'https://github.com/stevenjmiklovic' },
+		{ label: 'Thinking Sage', href: 'https://github.com/thinkingsage' },
+		{ label: 'Kryptik Research', href: 'https://github.com/kryptik-research' }
+	];
 </script>
 
 <footer class="site-footer">
 	<div class="container site-footer__inner">
 		<div class="footer-brand">
-			<span class="footer-mark">S×S</span>
-			<p>Structure for what must work. Judgment for everything else.</p>
+			<span class="footer-mark">s×s</span>
+			<div>
+				<p>Software that ships. A factory that compounds.</p>
+				<span>symbolic × subsymbolic</span>
+			</div>
 		</div>
 
-		<div class="footer-links" aria-label="Footer links">
-			<a href="mailto:github@sxs.io">Email</a>
-			<a href="https://github.com/stevenjmiklovic" target="_blank" rel="noopener noreferrer">
-				GitHub <span aria-hidden="true">↗</span>
-			</a>
-			<a href="#hero">Back to top ↑</a>
+		<div class="footer-actions">
+			<a href="/work">Work with the factory →</a>
+			<a href="mailto:github@sxs.io">github@sxs.io</a>
+		</div>
+
+		<div class="footer-ledger">
+			<p>Factory network</p>
+			<div>
+				{#each links as link}
+					<a href={link.href} target="_blank" rel="noopener noreferrer">
+						{link.label} <span aria-hidden="true">↗</span>
+					</a>
+				{/each}
+			</div>
 		</div>
 
 		<div class="footer-meta">
-			<span>© {year} SXS</span>
-			<span class="availability"><i aria-hidden="true"></i> Available for select engagements</span>
+			<span>© {year} sXs</span>
+			<span class="availability"
+				><i aria-hidden="true"></i> Building in public · remote / global</span
+			>
 		</div>
 	</div>
 </footer>
 
 <style>
 	.site-footer {
-		padding: 3rem 1.5rem;
+		padding: clamp(3rem, 7vw, 5rem) 1.5rem 2.5rem;
 		background: var(--ink);
 		color: var(--paper);
 	}
@@ -46,37 +65,74 @@
 
 	.footer-mark {
 		font-family: var(--font-mono);
-		font-size: 0.82rem;
+		font-size: 0.88rem;
 		font-weight: 700;
 		color: var(--signal);
 	}
 
 	.footer-brand p {
-		max-width: 28rem;
-		color: #c9d2cc;
-		font-size: 0.9rem;
+		max-width: 30rem;
+		color: #d8e0db;
+		font-size: 1rem;
 	}
 
-	.footer-links {
+	.footer-brand div > span {
+		display: block;
+		margin-top: 0.3rem;
+		font-family: var(--font-mono);
+		font-size: 0.56rem;
+		text-transform: uppercase;
+		color: #82938a;
+	}
+
+	.footer-actions {
+		display: grid;
+		gap: 0.65rem;
+		justify-items: end;
+		font-family: var(--font-mono);
+		font-size: 0.66rem;
+		font-weight: 700;
+		color: var(--signal);
+	}
+
+	.footer-ledger {
+		grid-column: 1 / -1;
 		display: flex;
-		gap: 1.5rem;
-		font-size: 0.82rem;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 1.2rem 0;
+		border-top: 1px solid #34423a;
+		border-bottom: 1px solid #34423a;
+	}
+
+	.footer-ledger p {
+		font-family: var(--font-mono);
+		font-size: 0.58rem;
+		text-transform: uppercase;
+		color: #82938a;
+	}
+
+	.footer-ledger div {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.4rem;
+		font-size: 0.76rem;
 		color: #dfe6e1;
 	}
 
-	.footer-links a:hover {
-		color: var(--signal);
+	.footer-ledger a:hover,
+	.footer-actions a:hover {
+		color: white;
 	}
 
 	.footer-meta {
 		grid-column: 1 / -1;
 		display: flex;
 		justify-content: space-between;
-		padding-top: 1.5rem;
-		border-top: 1px solid #34423a;
 		font-family: var(--font-mono);
-		font-size: 0.65rem;
-		color: #91a198;
+		font-size: 0.6rem;
+		color: #82938a;
 	}
 
 	.availability {
@@ -102,19 +158,16 @@
 			gap: 2rem;
 		}
 
-		.footer-brand {
-			flex-direction: column;
+		.footer-actions {
+			justify-items: start;
 		}
 
-		.footer-links {
-			flex-wrap: wrap;
-		}
-
+		.footer-ledger,
 		.footer-meta {
 			grid-column: auto;
 			align-items: flex-start;
 			flex-direction: column;
-			gap: 0.75rem;
+			gap: 1rem;
 		}
 	}
 </style>

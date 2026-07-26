@@ -10,8 +10,9 @@
 	});
 </script>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 <Header />
-<main>
+<main id="main-content">
 	<slot />
 </main>
 <Footer />

@@ -1,0 +1,6 @@
+.claude/
+.kiro/
+
+# Archived reference captures and planning documents are not site source.
+/*.html
+/tva-tui-plan.md
