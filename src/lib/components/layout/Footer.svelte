@@ -21,6 +21,8 @@
 		<div class="footer-actions">
 			<a href="/work">Work with the factory →</a>
 			<a href="mailto:github@sxs.io">github@sxs.io</a>
+			<a href="/terms">Terms of Service</a>
+			<a href="/privacy">Privacy Policy</a>
 		</div>
 
 		<div class="footer-ledger">
