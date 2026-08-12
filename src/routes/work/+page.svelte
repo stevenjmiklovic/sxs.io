@@ -58,17 +58,17 @@ Relevant repository or brief:`);
 			name: 'Decision Review',
 			position: 'Advisory',
 			description:
-				'A focused product, architecture, or explicit-versus-learned boundary decision when more software is not yet the right output.',
+				'A focused product, architecture, or explicit-versus-learned boundary decision, for the point where a decision comes before a build.',
 			outputs: ['Pre-read', 'Working review', 'Written decision artifact']
 		}
 	];
 
 	const fit = [
 		'The intended product outcome can be stated clearly.',
-		'sXs can own a bounded release rather than supply interchangeable capacity.',
+		'sXs can own a bounded release end to end.',
 		'The work benefits from a small senior production system.',
 		'The client retains code, decisions, and an operable ownership path.',
-		'Non-confidential learning can improve the factory without exposing client material.'
+		'General learning can improve the factory while client material stays private.'
 	];
 </script>
 
@@ -91,10 +91,7 @@ Relevant repository or brief:`);
 				<p>Working modes</p>
 				<h2 id="modes-title">Build first. Advisory when it is the right output.</h2>
 			</div>
-			<p>
-				No seat-based staffing and no advice sold by the minute. Scope follows the product outcome,
-				risk, ownership, and release target.
-			</p>
+			<p>Scope follows the product outcome, risk, ownership, and release target.</p>
 		</header>
 
 		<div class="modes-grid">
@@ -155,7 +152,7 @@ Relevant repository or brief:`);
 				<span>github@sxs.io</span>
 				<span aria-hidden="true">↗</span>
 			</a>
-			<small>Direct email. No intake portal and no automated sales sequence.</small>
+			<small>Direct email, read and answered by a person.</small>
 		</div>
 	</div>
 </section>

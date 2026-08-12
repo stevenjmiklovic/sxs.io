@@ -43,7 +43,8 @@
 	<div class="container product-principle__inner">
 		<p>Product principle</p>
 		<blockquote>
-			AI is inside the production system. It does not have to be inside every product.
+			AI is inside the production system. Whether it belongs inside the product is a separate
+			decision.
 		</blockquote>
 		<div>
 			<p>

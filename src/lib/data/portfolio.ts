@@ -137,7 +137,7 @@ export const capabilities: PortfolioItem[] = [
 		summary:
 			'A canonical knowledge-artifact catalog and the compiler that validates and builds it. Author a skill, rule, workflow, agent, or prompt once, then compile it to every supported AI coding harness.',
 		audience:
-			'Engineering teams that need reusable agent knowledge without maintaining a separate source for every harness.',
+			'Engineering teams that want one maintained source of reusable agent knowledge for every harness.',
 		status: 'Maintained',
 		origin: 'Thinking Sage · original capability',
 		role: 'Core factory capability and open-source platform',
@@ -149,7 +149,7 @@ export const capabilities: PortfolioItem[] = [
 			href: 'https://github.com/thinkingsage/context-bazaar/releases/tag/v0.5.0'
 		},
 		factoryContribution:
-			'Makes production knowledge portable: author once, validate centrally, and adapt to each agent environment without duplicating the source.',
+			'Makes production knowledge portable: author once, validate centrally, and adapt to each agent environment from a single source.',
 		stages: ['Specify', 'Verify', 'Compound'],
 		tags: ['TypeScript', 'Bun', 'Agent infrastructure'],
 		links: [
@@ -256,7 +256,7 @@ export const capabilities: PortfolioItem[] = [
 		summary:
 			'A Kiro Power that brings Solr-backed vector, keyword, and hybrid search to a codebase, with incremental indexing and durable cross-session memory over MCP.',
 		audience:
-			'Developers who need an assistant to retrieve from a real index instead of re-reading the repository every session.',
+			'Developers who want an assistant that retrieves from a real index, session after session.',
 		status: 'Maintained',
 		origin: 'Original capability · Steven J. Miklovic',
 		role: 'Built and maintained through the sXs factory',
@@ -268,7 +268,7 @@ export const capabilities: PortfolioItem[] = [
 			href: 'https://github.com/stevenjmiklovic/solrcompass/releases'
 		},
 		factoryContribution:
-			'Gives the factory a retrieval substrate: local embeddings, incremental indexing, and session memory that persist between builds instead of being rebuilt inside every conversation.',
+			'Gives the factory a retrieval substrate: local embeddings, incremental indexing, and session memory that persist between builds and carry into the next conversation.',
 		stages: ['Specify', 'Generate', 'Verify', 'Ship'],
 		tags: ['Bun', 'Apache Solr', 'MCP'],
 		links: [

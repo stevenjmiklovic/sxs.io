@@ -21,7 +21,7 @@
 	<div class="container factory-definition__grid">
 		<div>
 			<p>Definition</p>
-			<h2 id="definition-title">A factory is a real operating model, not a speed metaphor.</h2>
+			<h2 id="definition-title">A factory is a real operating model.</h2>
 		</div>
 		<div class="factory-definition__copy">
 			<p>
@@ -29,8 +29,8 @@
 				verification, and compounding output.
 			</p>
 			<p>
-				The factory does not make every product identical. It gives unlike products a disciplined
-				way to move from intention to release while retaining the parts of production knowledge that
+				Unlike products keep their own shape. The factory gives each of them a disciplined way to
+				move from intention to release, while retaining the parts of production knowledge that
 				deserve to travel.
 			</p>
 		</div>
@@ -45,7 +45,7 @@
 				<h2 id="loop-title">Specify. Generate. Verify. Ship. Compound.</h2>
 				<p>
 					Every stage has a concrete output and a visible human responsibility. Models accelerate
-					work; they do not inherit accountability.
+					the work; accountability stays with a person.
 				</p>
 			</div>
 		</header>
@@ -98,7 +98,7 @@
 				<h2 id="artifact-title">The production trail is inspectable.</h2>
 				<p>
 					These public artifacts expose selected releases, decisions, verification surfaces, and
-					capability contracts. They are evidence, not a claim that every internal detail is public.
+					capability contracts. Each one is evidence drawn from work that shipped.
 				</p>
 			</div>
 		</header>
@@ -163,26 +163,26 @@
 <section class="section section--dark anti-promises" aria-labelledby="promises-title">
 	<div class="container anti-promises__inner">
 		<div>
-			<p>Anti-promises</p>
-			<h2 id="promises-title">What the factory will not pretend.</h2>
+			<p>Plain terms</p>
+			<h2 id="promises-title">What the factory states plainly.</h2>
 		</div>
 		<ul>
 			<li>
-				<strong>No instant-app claim.</strong>
-				<span>Ambitious products still contain decisions, unknowns, and integration work.</span>
+				<strong>Ambitious products take real work.</strong>
+				<span>Each one carries decisions, unknowns, and integration work through to release.</span>
 			</li>
 			<li>
-				<strong>No unsupported “10×.”</strong>
-				<span>Velocity claims require a defined baseline and evidence from comparable work.</span>
+				<strong>Velocity claims require evidence.</strong>
+				<span>A published multiple needs a defined baseline and results from comparable work.</span>
 			</li>
 			<li>
-				<strong>No unaccountable autonomy.</strong>
+				<strong>Autonomy stays accountable.</strong>
 				<span>Consequential boundaries and release decisions retain a named human owner.</span>
 			</li>
 			<li>
-				<strong>No reuse for its own sake.</strong>
+				<strong>Reuse has to earn its place.</strong>
 				<span
-					>Unlike products are not forced into a shared platform merely to make the ledger longer.</span
+					>A capability joins the shared platform when a later build genuinely depends on it.</span
 				>
 			</li>
 		</ul>

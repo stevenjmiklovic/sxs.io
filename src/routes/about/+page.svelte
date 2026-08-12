@@ -5,28 +5,28 @@
 	const beliefs = [
 		'Software is the output; the factory is the advantage.',
 		'Models multiply a strong production system and magnify a weak one.',
-		'Specification is leverage, not paperwork.',
-		'Generation without verification creates inventory, not value.',
-		'Human judgment belongs at consequential boundaries, not in every repetitive step.',
+		'Specification is the leverage that lets people and models build in parallel.',
+		'Verification is what turns generated work into value.',
+		'Human judgment belongs at consequential boundaries.',
 		'Reusable capability is the factory’s retained earnings.',
 		'Shipping is necessary; operability is the standard.',
 		'A small team should become more capable with every build.'
 	];
 
-	const exclusions = [
-		'An offshore-style development factory selling interchangeable capacity.',
-		'A body shop or staff-augmentation provider.',
-		'A no-code “idea to app in one prompt” service.',
-		'A generic AI transformation consultancy.',
-		'A vendor of autonomous agents without accountable human review.',
-		'A collection of unrelated side projects.',
-		'A high-volume MVP mill.'
+	const commitments = [
+		'Bounded outcomes the factory owns end to end.',
+		'A named human owner on every consequential decision and release.',
+		'Ambitious products, carrying the decisions and integration work they require.',
+		'Software as the deliverable, priced by outcome, risk, and ownership.',
+		'Code, decisions, and an operable ownership path that stay with the client.',
+		'A portfolio where each build strengthens the one after it.',
+		'Operable software, maintained after the release.'
 	];
 </script>
 
 <Seo
 	title="About"
-	description="sXs is an AI software factory. What the name means, what the factory believes, and what it refuses to be."
+	description="sXs is an AI software factory. What the name means, what the factory believes, and the work it takes on."
 	path="/about"
 />
 
@@ -49,7 +49,7 @@
 			</p>
 			<p>
 				Exploration, synthesis, pattern recognition, and bounded implementation are the subsymbolic
-				side. They are where a model creates leverage rather than risk.
+				side. They are where a model creates leverage.
 			</p>
 			<p>
 				The × is the production seam. A person places it, defines the evidence that clears it, and
@@ -71,14 +71,14 @@
 		</div>
 		<div class="about-copy">
 			<p>
-				The output can be a product that contains AI, a product that contains no model at all, or a
-				capability that makes later work more reliable. AI is how the factory works. It does not
-				have to be what the factory sells.
+				The output can be a product built around a model, a product whose value lies entirely
+				elsewhere, or a capability that makes later work more reliable. AI is how the factory works.
+				Whether it belongs inside the product is a separate decision.
 			</p>
 			<p>
-				sXs is deliberately small and senior. The advantage is not headcount. It is that every build
-				leaves behind capability the next build starts from, and that a named person stays
-				accountable for what ships.
+				sXs is deliberately small and senior. The advantage is compounding: every build leaves
+				behind capability the next build starts from, and a named person stays accountable for what
+				ships.
 			</p>
 		</div>
 	</div>
@@ -91,8 +91,8 @@
 			<div class="section-heading__content">
 				<h2 id="beliefs-title">Positions the factory can be judged against.</h2>
 				<p>
-					These are working commitments, not slogans. Each one is visible in how a build is
-					specified, verified, released, and reused.
+					These are working commitments. Each one is visible in how a build is specified, verified,
+					released, and reused.
 				</p>
 			</div>
 		</header>
@@ -108,20 +108,21 @@
 	</div>
 </section>
 
-<section class="section section--dark about-exclusions" aria-labelledby="exclusions-title">
+<section class="section section--dark about-commitments" aria-labelledby="commitments-title">
 	<div class="container about-split">
 		<div>
-			<p class="about-eyebrow">Deliberate exclusions</p>
-			<h2 id="exclusions-title">What sXs is not.</h2>
+			<p class="about-eyebrow">Deliberate focus</p>
+			<h2 id="commitments-title">What sXs takes on.</h2>
 		</div>
 		<div>
-			<ul class="exclusion-list">
-				{#each exclusions as exclusion}
-					<li>{exclusion}</li>
+			<ul class="commitment-list">
+				{#each commitments as commitment}
+					<li>{commitment}</li>
 				{/each}
 			</ul>
-			<p class="exclusion-note">
-				“Factory” is a claim about how the work is organized, not about how cheap it is.
+			<p class="commitment-note">
+				“Factory” describes how the work is organized: repeatable inputs, composable production,
+				independent verification, and compounding output.
 			</p>
 		</div>
 	</div>
@@ -218,15 +219,15 @@
 		letter-spacing: -0.02em;
 	}
 
-	.about-exclusions .about-eyebrow {
+	.about-commitments .about-eyebrow {
 		color: var(--signal);
 	}
 
-	.about-exclusions h2 {
+	.about-commitments h2 {
 		color: var(--paper-raised);
 	}
 
-	.exclusion-list {
+	.commitment-list {
 		display: grid;
 		gap: 1px;
 		border: 1px solid var(--ink-line);
@@ -234,7 +235,7 @@
 		list-style: none;
 	}
 
-	.exclusion-list li {
+	.commitment-list li {
 		padding: 1.1rem 1.3rem;
 		background: var(--ink-panel);
 		font-size: 0.92rem;
@@ -242,7 +243,7 @@
 		color: #aebbb3;
 	}
 
-	.exclusion-note {
+	.commitment-note {
 		margin-top: 1.75rem;
 		font-size: clamp(1rem, 1.8vw, 1.25rem);
 		line-height: 1.6;

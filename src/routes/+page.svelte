@@ -42,7 +42,7 @@ Relevant repository or brief:`);
 		{
 			name: 'Decision Review',
 			description:
-				'A standalone product or architecture decision with a written artifact. Advisory, when a build is not yet the right move.'
+				'A standalone product or architecture decision with a written artifact. Advisory, for the point where a decision comes before a build.'
 		}
 	];
 </script>
@@ -196,10 +196,10 @@ Relevant repository or brief:`);
 		<header class="section-heading">
 			<p class="section-heading__eyebrow">Factory evidence</p>
 			<div class="section-heading__content">
-				<h2 id="evidence-title">Artifacts, not productivity theater.</h2>
+				<h2 id="evidence-title">Artifacts carry the argument.</h2>
 				<p>
 					Releases, architecture decisions, tests, and inspectable capability specifications make
-					the production system legible without inventing a velocity multiplier.
+					the production system legible on the strength of what it shipped.
 				</p>
 			</div>
 		</header>
@@ -249,8 +249,8 @@ Relevant repository or brief:`);
 			<div class="section-heading__content">
 				<h2 id="work-title">Bring an outcome the factory can own.</h2>
 				<p>
-					Selected builds and partnerships come first. Advisory is available when a clear decision,
-					not more software, is the useful output.
+					Selected builds and partnerships come first. Advisory is available when a clear decision
+					is the useful output.
 				</p>
 			</div>
 		</header>
