@@ -6,7 +6,7 @@
 	import StatusLabel from '$lib/components/ui/StatusLabel.svelte';
 	import { factoryNotes } from '$lib/content/notes';
 	import { factoryEvidence } from '$lib/data/factory';
-	import { capabilities, latestShipment, products } from '$lib/data/portfolio';
+	import { featured, latestShipment } from '$lib/data/portfolio';
 	import { formatDate } from '$lib/utils/format';
 
 	const inquiryBody = encodeURIComponent(`Product or system in one sentence:
@@ -143,51 +143,28 @@ Relevant repository or brief:`);
 	</div>
 </section>
 
-<section class="section section--soft" aria-labelledby="products-title">
+<section class="section section--soft" aria-labelledby="featured-title">
 	<div class="container">
 		<header class="section-heading">
-			<p class="section-heading__eyebrow">Products</p>
+			<p class="section-heading__eyebrow">Featured work</p>
 			<div class="section-heading__content">
-				<h2 id="products-title">The software is the output.</h2>
+				<h2 id="featured-title">Three unlike builds. One production system.</h2>
 				<p>
-					Original products and maintained variants built for real use. AI may be inside the
-					product—or only inside the production system that made it.
+					A keyboard-first writing environment, a canonical knowledge-artifact compiler, and a
+					Solr-backed retrieval capability. Different problems, different stacks, the same path from
+					intention to release.
 				</p>
 			</div>
 		</header>
 
 		<div class="preview-grid">
-			{#each products as product, index}
-				<PortfolioCard item={product} {index} compact />
+			{#each featured as item, index}
+				<PortfolioCard {item} {index} compact />
 			{/each}
 		</div>
 
 		<div class="section-action">
 			<a class="text-link" href="/products">Browse the product index →</a>
-		</div>
-	</div>
-</section>
-
-<section class="section" aria-labelledby="capabilities-title">
-	<div class="container">
-		<header class="section-heading">
-			<p class="section-heading__eyebrow">Factory capabilities</p>
-			<div class="section-heading__content">
-				<h2 id="capabilities-title">Every build should leave the factory stronger.</h2>
-				<p>
-					Reusable agent knowledge, decision systems, and domain workflows turn repeated learning
-					into infrastructure for the next product.
-				</p>
-			</div>
-		</header>
-
-		<div class="preview-grid">
-			{#each capabilities as capability, index}
-				<PortfolioCard item={capability} {index} compact />
-			{/each}
-		</div>
-
-		<div class="section-action">
 			<a class="text-link" href="/capabilities">Inspect the capability index →</a>
 		</div>
 	</div>
@@ -623,6 +600,8 @@ Relevant repository or brief:`);
 
 	.section-action {
 		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-lg);
 		justify-content: flex-end;
 		margin-top: 2rem;
 	}

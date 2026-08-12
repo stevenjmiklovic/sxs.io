@@ -18,7 +18,7 @@ const responses: Record<string, [string, string]> = {
 		BLUE
 	],
 	about: [
-		`\nSYMBOLIC × SUBSYMBOLIC\n────────────────────────────────────────\nsXs is an AI software factory. We build products,\nreusable capabilities, and selected client software.\n\nThe software ships. The factory compounds.\n`,
+		`\nSYMBOLIC × SUBSYMBOLIC\n────────────────────────────────────────\nsXs is an AI software factory. It builds products,\nreusable capabilities, and selected client software.\n\nThe software ships. The factory compounds.\n\nhttps://sxs.io/about\n`,
 		GREEN
 	],
 	factory: [

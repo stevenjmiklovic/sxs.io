@@ -99,8 +99,7 @@ export const products: PortfolioItem[] = [
 				href: 'https://github.com/stevenjmiklovic/worldmonitor',
 				kind: 'source'
 			}
-		],
-		featured: true
+		]
 	},
 	{
 		slug: 'rhiza',
@@ -125,10 +124,7 @@ export const products: PortfolioItem[] = [
 			'Developed reusable patterns for graph-backed AI analysis, semantic clustering, provider fallback, and inspectable visual explanation.',
 		stages: ['Specify', 'Generate', 'Verify'],
 		tags: ['SvelteKit', 'FastAPI', 'Neo4j'],
-		links: [
-			{ label: 'View source', href: 'https://github.com/thinkingsage/rhiza', kind: 'source' }
-		],
-		featured: true
+		links: [{ label: 'View source', href: 'https://github.com/thinkingsage/rhiza', kind: 'source' }]
 	}
 ];
 
@@ -137,13 +133,13 @@ export const capabilities: PortfolioItem[] = [
 		slug: 'kanon',
 		kind: 'capability',
 		classification: 'Capability',
-		name: 'Kanon',
+		name: 'Context Bazaar & Kanon',
 		summary:
-			'A canonical knowledge-artifact system that validates and compiles skills, rules, workflows, agents, and prompts for multiple AI coding harnesses.',
+			'A canonical knowledge-artifact catalog and the compiler that validates and builds it. Author a skill, rule, workflow, agent, or prompt once, then compile it to every supported AI coding harness.',
 		audience:
 			'Engineering teams that need reusable agent knowledge without maintaining a separate source for every harness.',
 		status: 'Maintained',
-		origin: 'Thinking Sage · Context Bazaar',
+		origin: 'Thinking Sage · original capability',
 		role: 'Core factory capability and open-source platform',
 		latestRelease: {
 			label: 'v0.5.0',
@@ -214,8 +210,7 @@ export const capabilities: PortfolioItem[] = [
 				href: 'https://github.com/thinkingsage/context-bazaar/tree/main/kanon/knowledge/adr',
 				kind: 'artifact'
 			}
-		],
-		featured: true
+		]
 	},
 	{
 		slug: 'byron-powers',
@@ -251,13 +246,54 @@ export const capabilities: PortfolioItem[] = [
 				href: 'https://github.com/thinkingsage/context-bazaar/tree/main/kanon/knowledge/byron-powers',
 				kind: 'artifact'
 			}
+		]
+	},
+	{
+		slug: 'solr-compass',
+		kind: 'capability',
+		classification: 'Capability',
+		name: 'Solr Compass',
+		summary:
+			'A Kiro Power that brings Solr-backed vector, keyword, and hybrid search to a codebase, with incremental indexing and durable cross-session memory over MCP.',
+		audience:
+			'Developers who need an assistant to retrieve from a real index instead of re-reading the repository every session.',
+		status: 'Maintained',
+		origin: 'Original capability · Steven J. Miklovic',
+		role: 'Built and maintained through the sXs factory',
+		latestRelease: {
+			label: 'v0.2.0',
+			date: '2026-08-10',
+			summary:
+				'The current release ships six retrieval and memory skills against a bundled SolrCloud environment.',
+			href: 'https://github.com/stevenjmiklovic/solrcompass/releases'
+		},
+		factoryContribution:
+			'Gives the factory a retrieval substrate: local embeddings, incremental indexing, and session memory that persist between builds instead of being rebuilt inside every conversation.',
+		stages: ['Specify', 'Generate', 'Verify', 'Ship'],
+		tags: ['Bun', 'Apache Solr', 'MCP'],
+		links: [
+			{
+				label: 'View source',
+				href: 'https://github.com/stevenjmiklovic/solrcompass',
+				kind: 'source'
+			},
+			{
+				label: 'Read capability',
+				href: 'https://github.com/stevenjmiklovic/solrcompass/blob/main/POWER.md',
+				kind: 'docs'
+			}
 		],
 		featured: true
 	}
 ];
 
 export const portfolio = [...products, ...capabilities];
-export const latestShipment = capabilities[0];
+export const featured = portfolio.filter((item) => item.featured);
+
+// Derived rather than hardcoded so adding an entry cannot silently change the homepage band.
+export const latestShipment = portfolio.reduce((latest, item) =>
+	item.latestRelease.date > latest.latestRelease.date ? item : latest
+);
 
 export function getPortfolioItem(slug: string) {
 	return portfolio.find((item) => item.slug === slug);

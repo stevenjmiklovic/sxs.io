@@ -9,7 +9,8 @@
 		{ label: 'Products', href: '/products' },
 		{ label: 'Capabilities', href: '/capabilities' },
 		{ label: 'Factory', href: '/factory' },
-		{ label: 'Notes', href: '/notes' }
+		{ label: 'Notes', href: '/notes' },
+		{ label: 'About', href: '/about' }
 	];
 
 	onMount(() => {

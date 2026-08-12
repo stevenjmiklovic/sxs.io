@@ -87,7 +87,7 @@ export const factoryLedger = [
 		build: 'ADR Power',
 		shipped: 'Portable ADR creation and maintenance capability',
 		capability: 'Canonical ADR knowledge artifact',
-		reusedBy: 'Kanon / Context Bazaar',
+		reusedBy: 'Context Bazaar & Kanon',
 		evidence: 'https://github.com/thinkingsage/context-bazaar/tree/main/kanon/knowledge/adr'
 	},
 	{
