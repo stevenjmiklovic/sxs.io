@@ -314,6 +314,55 @@ pre {
 	font-size: 0.88em;
 }
 
+.prose h3 {
+	margin-top: 2.6rem;
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	line-height: 1.25;
+	letter-spacing: -0.02em;
+}
+
+/* The header is fixed, so anchor targets must clear it. */
+.prose h2,
+.prose h3 {
+	scroll-margin-top: calc(var(--header-height) + 1.25rem);
+}
+
+.prose hr {
+	margin-top: 3rem;
+	border: 0;
+	border-top: 1px solid var(--line);
+}
+
+.prose table {
+	width: 100%;
+	margin-top: 2rem;
+	border-collapse: collapse;
+	font-size: 0.82rem;
+}
+
+.prose th,
+.prose td {
+	padding: 0.7rem 0.85rem 0.7rem 0;
+	border-bottom: 1px solid var(--line);
+	text-align: left;
+	vertical-align: top;
+	line-height: 1.55;
+}
+
+.prose th {
+	border-bottom-color: var(--line-strong);
+	font-family: var(--font-mono);
+	font-size: 0.58rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--graphite);
+}
+
+.prose td {
+	color: var(--ink-soft);
+}
+
 .btn {
 	display: inline-flex;
 	min-height: 48px;

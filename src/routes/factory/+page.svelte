@@ -33,6 +33,9 @@
 				way to move from intention to release while retaining the parts of production knowledge that
 				deserve to travel.
 			</p>
+			<a class="text-link" href="/factory/thesis"
+				>Read The Factory Thesis: evidence and falsification criteria →</a
+			>
 		</div>
 	</div>
 </section>
@@ -230,7 +233,8 @@
 		letter-spacing: -0.02em;
 	}
 
-	.factory-definition__copy p:last-child {
+	/* last-of-type, not last-child: a trailing link must not restyle this paragraph. */
+	.factory-definition__copy p:last-of-type {
 		color: var(--graphite);
 	}
 
