@@ -34,7 +34,7 @@
 				deserve to travel.
 			</p>
 			<a class="text-link" href="/factory/thesis"
-				>Read The Factory Thesis — evidence and falsification criteria →</a
+				>Read The Factory Thesis: evidence and falsification criteria →</a
 			>
 		</div>
 	</div>

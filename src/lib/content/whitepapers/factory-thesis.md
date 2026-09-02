@@ -13,9 +13,9 @@ referenceCount: 25
 
 sXs describes itself as an AI software factory and claims that its production capability compounds. Both claims are widely made across the category and rarely evidenced, and they therefore warrant an argument rather than an assertion.
 
-This paper sets out a narrow and falsifiable case. Published research on AI-assisted software development does not converge on a productivity figure: credible controlled trials report effects ranging from approximately 56% faster to 19% slower on superficially comparable work. The dispersion is itself the substantive result. It indicates that the model is not the differentiating asset, since equivalent model access is available to every competitor. The variable is the production system in which the model operates — whether intent is made explicit before generation, whether verification capacity keeps pace with generation capacity, and whether capability is retained between builds.
+This paper sets out a narrow and falsifiable case. Published research on AI-assisted software development does not converge on a productivity figure: credible controlled trials report effects ranging from approximately 56% faster to 19% slower on superficially comparable work. The dispersion is itself the substantive result. It indicates that the model is not the differentiating asset, since equivalent model access is available to every competitor. The variable is the production system in which the model operates: whether intent is made explicit before generation, whether verification capacity keeps pace with generation capacity, and whether capability is retained between builds.
 
-The five stages sXs publishes — **Specify, Generate, Verify, Ship, Compound** — are not offered as a proprietary methodology. Each corresponds to a documented failure mode that occurs in its absence. This paper identifies those failure modes, cites the evidence for them, states the observations that would falsify the thesis, and distinguishes what the evidence supports from what remains inference.
+The five stages sXs publishes (**Specify, Generate, Verify, Ship, Compound**) are not offered as a proprietary methodology. Each corresponds to a documented failure mode that occurs in its absence. This paper identifies those failure modes, cites the evidence for them, states the observations that would falsify the thesis, and distinguishes what the evidence supports from what remains inference.
 
 A further conclusion follows from the same evidence: the binding constraint on AI-assisted delivery has moved from writing code to establishing that code is correct. A production system that adds generation capacity without adding verification capacity does not ship more quickly; it accumulates unverified work in progress.
 
@@ -45,7 +45,7 @@ Sections 2 to 9 argue the first set of claims. Sections 10 and 11 state the cond
 
 The software factory is not a new concept, and its documented history is largely one of abandonment. That history bears directly on the term's use here, and is therefore addressed before the operating model is described.
 
-Michael Cusumano's research at MIT documented the Japanese software factories of the 1970s and 1980s — Hitachi, Toshiba, NEC, and Fujitsu — which centralised development, imposed process control and standardised methods, and treated reuse as a managed asset rather than an accident [1][2]. Fujitsu, for example, centralised systems software at its Numazu works and established a dedicated software factory department that performed detailed design, coding, and testing against specifications produced elsewhere [2].
+Michael Cusumano's research at MIT documented the Japanese software factories of the 1970s and 1980s at Hitachi, Toshiba, NEC, and Fujitsu, which centralised development, imposed process control and standardised methods, and treated reuse as a managed asset rather than an accident [1][2]. Fujitsu, for example, centralised systems software at its Numazu works and established a dedicated software factory department that performed detailed design, coding, and testing against specifications produced elsewhere [2].
 
 Two features of this record are relevant. The first is that the approach was substantially abandoned by United States firms within approximately three years of being attempted [3]. The second concerns the reason. The term imported an analogy to the mass production of identical units, and that analogy does not hold for software: the marginal unit costs nothing to reproduce, the work is consequently design work in its entirety, and no two products constitute the same unit. Cusumano's survey of factory concepts and practices treats the analogy with corresponding caution [4].
 
@@ -67,7 +67,7 @@ If AI-assisted development produced a stable effect size, the strongest producti
 
 ### 3.1 Trials reporting positive effects
 
-Peng, Kalliamvakou, Cihon, and Demirer ran a controlled experiment in which 95 programmers recruited through Upwork implemented an HTTP server in JavaScript against a fixed twelve-check test suite. The group with GitHub Copilot finished 55.8% faster — 71 minutes against 161 — with a 95% confidence interval of 21% to 89% and p = 0.0017 [6].
+Peng, Kalliamvakou, Cihon, and Demirer ran a controlled experiment in which 95 programmers recruited through Upwork implemented an HTTP server in JavaScript against a fixed twelve-check test suite. The group with GitHub Copilot finished 55.8% faster (71 minutes against 161), with a 95% confidence interval of 21% to 89% and p = 0.0017 [6].
 
 The result is methodologically sound, and it is also frequently generalised beyond the conditions under which it was obtained. The authors state four constraints. The task was standardised, greenfield, and self-contained, presenting no existing codebase to comprehend and no maintenance horizon. Participants were freelancers averaging six years of experience rather than maintainers of the system in question. The study did not examine code quality, which the authors identify as a limitation carrying security and performance implications. Finally, the measured benefit was largest for the least experienced developers. The last of these is revisited in section 3.4.
 
@@ -75,9 +75,9 @@ Paradis and colleagues at Google ran an enterprise-based randomised controlled t
 
 ### 3.2 A trial reporting a negative effect, and its subsequent correction
 
-METR studied 16 experienced open-source developers completing 246 tasks in mature repositories they had worked on for an average of five years, using the early-2025 frontier — Cursor Pro with Claude 3.5/3.7 Sonnet. Allowing AI increased completion time by 19%. The more notable result is the accompanying perception gap: participants forecast a 24% reduction beforehand and still estimated a 20% reduction after completing the work, while domain experts had predicted improvements of approximately 38 to 39% [8].
+METR studied 16 experienced open-source developers completing 246 tasks in mature repositories they had worked on for an average of five years, using the early-2025 frontier tooling of Cursor Pro with Claude 3.5/3.7 Sonnet. Allowing AI increased completion time by 19%. The more notable result is the accompanying perception gap: participants forecast a 24% reduction beforehand and still estimated a 20% reduction after completing the work, while domain experts had predicted improvements of approximately 38 to 39% [8].
 
-The study is widely cited, and should be read together with its successor. In February 2026 METR published a revision of its own experimental design, reporting that the newer data indicates a speedup of approximately 18% for the subset of returning developers and approximately 4% for new recruits, with confidence intervals crossing zero in both cases. METR assesses that developers are likely more assisted in 2026 than its early-2025 estimate indicated, that selection effects bias its estimates downward — developers increasingly decline to participate rather than work without AI, and withhold the tasks for which they expect the greatest benefit — and that its figures should be read as a lower bound [9].
+The study is widely cited, and should be read together with its successor. In February 2026 METR published a revision of its own experimental design, reporting that the newer data indicates a speedup of approximately 18% for the subset of returning developers and approximately 4% for new recruits, with confidence intervals crossing zero in both cases. METR assesses that developers are likely more assisted in 2026 than its early-2025 estimate indicated, that selection effects bias its estimates downward, and that its figures should be read as a lower bound [9]. Those selection effects are twofold: developers increasingly decline to participate rather than work without AI, and they withhold the tasks for which they expect the greatest benefit.
 
 The defensible summary is therefore not that AI slows developers down, but that task-level measurement of the effect is currently unreliable, a limitation stated by the researchers conducting the most rigorous work on it. Citing the 19% figure as a current finding, in either direction, treats a superseded estimate as settled.
 
@@ -85,17 +85,17 @@ The defensible summary is therefore not that AI slows developers down, but that 
 
 Individual task time is in any case not the decisive unit of analysis, since software is delivered by organisations rather than by individuals.
 
-DORA's 2024 report found that AI adoption raised individual productivity, flow, and job satisfaction while _reducing_ software delivery throughput by an estimated 1.5% and stability by 7.2%; 39% of respondents reported little or no trust in AI-generated code [10]. The 2025 report found the throughput relationship had turned positive as teams learned where AI helps — while the negative relationship with delivery _stability_ persisted for a second consecutive year [11].
+DORA's 2024 report found that AI adoption raised individual productivity, flow, and job satisfaction while _reducing_ software delivery throughput by an estimated 1.5% and stability by 7.2%; 39% of respondents reported little or no trust in AI-generated code [10]. The 2025 report found the throughput relationship had turned positive as teams established where AI was useful, while the negative relationship with delivery _stability_ persisted for a second consecutive year [11].
 
-Faros AI's telemetry analysis across more than 10,000 developers and 1,255 teams found the same shape from a different direction: high-AI-adoption teams completed 21% more tasks and merged 98% more pull requests, while pull request review time rose 91% and PR size grew 154% — with no measurable improvement in organisational DORA metrics [12]. Their 2026 follow-up reports the pattern intensifying: larger changes, roughly five times the median review time, and materially more incidents per pull request [13].
+Faros AI's telemetry analysis across more than 10,000 developers and 1,255 teams found the same shape from a different direction: high-AI-adoption teams completed 21% more tasks and merged 98% more pull requests, while pull request review time rose 91% and PR size grew 154%, with no measurable improvement in organisational DORA metrics [12]. Their 2026 follow-up reports the pattern intensifying: larger changes, roughly five times the median review time, and materially more incidents per pull request [13].
 
 ### 3.4 Interpretation of the dispersion
 
 Taken together, the reported effects span −19% to +56% at the task level, while organisational measurement shows a consistent pattern in which individual output rises and delivery outcomes remain flat or degrade in stability.
 
-The two extremes are not in conflict, and the reason they are not is central to the argument. The trial reporting +56% measured inexperienced freelancers constructing a self-contained artefact from nothing, without measuring code quality, and found the largest benefit among the least experienced participants. The trial reporting −19% measured expert maintainers making changes within large codebases they knew in detail, where quality standards were implicit and high. These conditions sit at close to opposite ends of two variables, codebase maturity and operator expertise, and the results order themselves accordingly. AI-assisted generation delivers most value where constraints are fewest and the operator's own knowledge is thinnest, and least value — potentially negative value — where the binding difficulty is comprehending an existing system and conforming to its standards. The latter set of conditions describes the regime in which a factory producing durable products ordinarily operates.
+The two extremes are not in conflict, and the reason they are not is central to the argument. The trial reporting +56% measured inexperienced freelancers constructing a self-contained artefact from nothing, without measuring code quality, and found the largest benefit among the least experienced participants. The trial reporting −19% measured expert maintainers making changes within large codebases they knew in detail, where quality standards were implicit and high. These conditions sit at close to opposite ends of two variables, codebase maturity and operator expertise, and the results order themselves accordingly. AI-assisted generation delivers most value where constraints are fewest and the operator's own knowledge is thinnest. It delivers least value, and potentially negative value, where the binding difficulty is comprehending an existing system and conforming to its standards. The latter set of conditions describes the regime in which a factory producing durable products ordinarily operates.
 
-A multivocal review of 67 sources published in 2026 designates this pattern the Productivity–Reliability Paradox, attributing it to the interaction between non-deterministic generators and insufficient specification discipline. It identifies task abstraction, codebase maturity, and developer experience as moderating variables, and the code review bottleneck as an amplifying mechanism. Its conclusion is that specification discipline, rather than model capability, is the binding constraint on the dependability of AI-assisted software [14].
+A multivocal review of 67 sources published in 2026 designates this pattern the Productivity-Reliability Paradox, attributing it to the interaction between non-deterministic generators and insufficient specification discipline. It identifies task abstraction, codebase maturity, and developer experience as moderating variables, and the code review bottleneck as an amplifying mechanism. Its conclusion is that specification discipline, rather than model capability, is the binding constraint on the dependability of AI-assisted software [14].
 
 sXs reached the same structural conclusion from practice, and it constitutes the thesis of this paper. Two consequences follow.
 
@@ -106,7 +106,7 @@ sXs reached the same structural conclusion from practice, and it constitutes the
 
 ## 4. The limits of generation as a source of advantage
 
-Frederick Brooks distinguished the _essential_ difficulty of software — constructing the conceptual structure of the system — from the _accidental_ difficulty of expressing that structure in a language and fitting it to a machine. His argument was arithmetic: unless accidental tasks consume more than nine-tenths of total effort, eliminating them entirely cannot yield an order-of-magnitude improvement [15].
+Frederick Brooks distinguished the _essential_ difficulty of software, meaning the construction of the conceptual structure of the system, from the _accidental_ difficulty of expressing that structure in a language and fitting it to a machine. His argument was arithmetic: unless accidental tasks consume more than nine-tenths of total effort, eliminating them entirely cannot yield an order-of-magnitude improvement [15].
 
 Language models address accidental complexity effectively. They translate intent into syntax, recall idioms, adapt patterns across a codebase, and produce serviceable first drafts of documentation. This is genuine leverage, and sXs relies on it.
 
@@ -124,7 +124,7 @@ Spear and Bowen's study of the Toyota Production System identifies that mechanis
 
 The principle transfers directly to model-driven production. A generated change either satisfies a stated expectation or it does not. In the absence of that expectation, apparent correctness is the only available test, and section 6 sets out why this is the weakest available gate against the failure mode in question. Specification is consequently not documentation overhead. It is the precondition for verification and, because it renders deviation legible, the precondition for improvement.
 
-Consequential decisions need the same treatment over a longer horizon. Architecture decision records, in the lightweight form Michael Nygard proposed in 2011, capture a single significant decision with its context and accepted consequences, stored beside the code [17]. In an AI-native system this acquires a second function: the record becomes context that later human _and_ model work reads, so the reasoning behind a system's present shape survives the departure of whoever held it. sXs maintains this as production infrastructure rather than documentation habit — ADR Power as the source capability, compiled through Kanon and reused across builds.
+Consequential decisions need the same treatment over a longer horizon. Architecture decision records, in the lightweight form Michael Nygard proposed in 2011, capture a single significant decision with its context and accepted consequences, stored beside the code [17]. In an AI-native system this acquires a second function: the record becomes context that later human _and_ model work reads, so the reasoning behind a system's present shape survives the departure of whoever held it. sXs maintains this as production infrastructure rather than as documentation habit, with ADR Power as the source capability, compiled through Kanon and reused across builds.
 
 ---
 
@@ -155,7 +155,7 @@ Structural quality indicators point in the same direction. GitClear's analysis o
 Increasing reviewer headcount does not resolve this. Review capacity cannot scale with generation capacity, and each additional change would receive less attention rather than more. The available response is to change what human attention is spent on.
 
 - **Baseline correctness is established mechanically and deterministically,** through types, schemas, contracts, tests, builds, linters, and evaluations. Mechanical checks do not tire, do not become complacent, and do not accept almost-correct output as plausible.
-- **Human attention is reserved for intent, consequence, and irreversibility** — the essential complexity described in section 4, which no automated gate can adjudicate.
+- **Human attention is reserved for intent, consequence, and irreversibility,** which constitute the essential complexity described in section 4 and cannot be adjudicated by any automated gate.
 - **Verification is defined before generation begins.** Where acceptance cannot be stated in advance, the work is not ready to be generated. This is an existing sXs guardrail, and section 5 states why it is enforceable.
 - **Deterministic checks are preferred wherever a model contributes no judgment.** A check that can be performed as a string comparison should not be a model call, being cheaper, reproducible, and not subject to interpretation.
 
@@ -185,7 +185,7 @@ The same reasoning accounts for the Factory Ledger being deliberately small. A c
 
 ---
 
-## 9. The symbolic–subsymbolic seam: placement of human judgment
+## 9. The symbolic and subsymbolic seam: placement of human judgment
 
 The symbolic × subsymbolic seam is a production decision concerning which parts of the work carry explicit structure and which are left to learned synthesis. Section 6.3 states its verification logic. A separate and older consideration determines why its position cannot be allowed to drift.
 
@@ -203,12 +203,12 @@ A claim that admits no disconfirming observation is not testable. Each element o
 
 | Claim                                                 | What would falsify it                                                                                           | Where it is checkable                                                |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Capability compounds                                  | Capabilities are published but no later build uses them; the ledger stays empty or is padded with trivial reuse | Factory Ledger — entries require a named consuming build             |
+| Capability compounds                                  | Capabilities are published but no later build uses them; the ledger stays empty or is padded with trivial reuse | Factory Ledger, where entries require a named consuming build        |
 | Specification reduces rework                          | Specified work shows the same rework rate as unspecified work                                                   | Share of generated changes passing verification without major rework |
 | Verification catches what review misses               | Defects reach release at the same rate with mechanical gates as without                                         | Defects and regressions caught before release                        |
 | Specification is not overhead                         | Time from accepted specification to verified release does not improve as capability accrues                     | Cycle time, measured per build                                       |
 | Reuse is genuine, not forced                          | Unlike products require a brittle shared platform; changes to one break another                                 | Independence of the product repositories                             |
-| AI belongs in production, not necessarily the product | Only AI-containing products ship successfully                                                                   | The portfolio itself — PerfectStar 2K contains no model              |
+| AI belongs in production, not necessarily the product | Only AI-containing products ship successfully                                                                   | The portfolio itself, in which PerfectStar 2K contains no model      |
 
 Two standing commitments follow. No claim regarding speed, quality, or autonomy is published without a defined baseline and comparable work. A capability that never reaches a second build is recorded as unreused rather than removed from the ledger.
 
@@ -240,7 +240,7 @@ Three of those conditions are now reasonably well evidenced. Explicit specificat
 
 This constitutes the sXs thesis, and it is why the operating model comprises five stages rather than one. Generation is the least costly of the five and the most frequently discussed.
 
-Both halves of the resulting position — that the software ships and that the factory compounds — are stated so that they can be checked. Section 10 specifies how.
+The resulting position has two halves: that the software ships, and that the factory compounds. Both are stated so that they can be checked, and section 10 specifies how.
 
 ---
 
@@ -248,8 +248,8 @@ Both halves of the resulting position — that the software ships and that the f
 
 1. Cusumano, M. A. _Japan's Software Factories: A Challenge to U.S. Management._ Oxford University Press, 1991. <https://archive.org/details/japanssoftwarefa0000cusu>
 2. Cusumano, M. A. "Fujitsu Software: Process Control and Automated Customization." MIT Sloan School of Management Working Paper 2044-88, August 1988. <https://dspace.mit.edu/handle/1721.1/47942>
-3. Review of _Japan's Software Factories_, _Journal of Information Technology_, 1993. doi:10.1057/jit.1993.27 — notes the abandonment of the standardisation-and-reuse factory approach by U.S. firms within about three years. <https://doi.org/10.1057/jit.1993.27>
-4. Cusumano, M. A. "Factory Concepts and Practices in Software Development." MIT Sloan School of Management working paper, December 1989. <https://dspace.mit.edu/handle/1721.1/47992> — an abbreviated treatment appeared as "The Software Factory: A Historical Interpretation," _IEEE Software_ 6(2), March 1989.
+3. Review of _Japan's Software Factories_, _Journal of Information Technology_, 1993. doi:10.1057/jit.1993.27. Notes the abandonment of the standardisation-and-reuse factory approach by U.S. firms within about three years. <https://doi.org/10.1057/jit.1993.27>
+4. Cusumano, M. A. "Factory Concepts and Practices in Software Development." MIT Sloan School of Management working paper, December 1989. <https://dspace.mit.edu/handle/1721.1/47992>. An abbreviated treatment appeared as "The Software Factory: A Historical Interpretation," _IEEE Software_ 6(2), March 1989.
 5. Kubo, T. "'Software Factory' was once created 40 years ago." Retrospective commentary, not primary history, on the status and pay of software work inside the Japanese software factory organisations. <https://note.com/takuya_kubo_1986/n/n0494501221ad?hl=en>
 6. Peng, S., Kalliamvakou, E., Cihon, P., Demirer, M. "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot." arXiv:2302.06590, 2023. 95 programmers recruited via Upwork, 45 treated / 50 control, May–June 2022; the authors state the study does not examine code quality. <https://arxiv.org/abs/2302.06590>
 7. Paradis, E., Grey, K., Madison, Q., Nam, D., Macvean, A., Meimand, V., Zhang, N., Ferrari-Church, B., Chandra, S. "How much does AI impact development speed? An enterprise-based randomized controlled trial." arXiv:2410.12944, 2024. <https://arxiv.org/abs/2410.12944>
@@ -257,7 +257,7 @@ Both halves of the resulting position — that the software ships and that the f
 9. METR. "We are Changing our Developer Productivity Experiment Design." 24 February 2026. <https://metr.org/blog/2026-02-24-uplift-update/>
 10. DORA / Google Cloud. _Accelerate State of DevOps Report 2024._ <https://dora.dev/dora-report-2024>
 11. DORA / Google Cloud. _State of AI-assisted Software Development 2025_ (2025 DORA report). <https://dora.dev/research/2025/dora-report/> · announcement: <https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report/>
-12. Faros AI. _The AI Productivity Paradox_ — telemetry from 10,000+ developers across 1,255 teams, 2025. <https://www.faros.ai/ai-productivity-paradox>
+12. Faros AI. _The AI Productivity Paradox._ Telemetry from more than 10,000 developers across 1,255 teams, 2025. <https://www.faros.ai/ai-productivity-paradox>
 13. Faros AI. _AI Engineering Report 2026: The Acceleration Whiplash._ <https://www.faros.ai/research/ai-acceleration-whiplash>
 14. Farrag, S. E. "The Productivity-Reliability Paradox: Specification-Driven Governance for AI-Augmented Software Development." arXiv:2605.01160, May 2026. <https://arxiv.org/abs/2605.01160>
 15. Brooks, F. P. "No Silver Bullet: Essence and Accidents of Software Engineering." _IEEE Computer_ 20(4), April 1987, pp. 10–19. <https://ieeexplore.ieee.org/document/1663532>
@@ -265,7 +265,7 @@ Both halves of the resulting position — that the software ships and that the f
 17. Nygard, M. "Documenting Architecture Decisions." 15 November 2011. <https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html>
 18. Kamalı, H. Ö., Tuna, E., Haratian, V., Tüzün, E. "Rethinking Code Review in the Age of AI: A Vision for Agentic Code Review." arXiv:2605.17548, 2026. <https://arxiv.org/abs/2605.17548>
 19. Perry, N., Srivastava, M., Kumar, D., Boneh, D. "Do Users Write More Insecure Code with AI Assistants?" _CCS '23: Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security_, November 2023, pp. 2785–2799. arXiv:2211.03622. <https://arxiv.org/abs/2211.03622>
-20. Stack Overflow. _2025 Developer Survey — AI section._ <https://survey.stackoverflow.co/2025/ai>
+20. Stack Overflow. _2025 Developer Survey: AI section._ <https://survey.stackoverflow.co/2025/ai>
 21. GitClear. _AI Code Quality Research: 211 million changed lines, 2021–2025._ <https://gitkraken.gitclear.com/recent_ai_developer_productivity_code_quality_research>
 22. GitClear. _The Maintainability Gap: 2026 AI Code Quality Research._ <https://gitkraken.gitclear.com/write_only_mode_ai_research>
 23. Cohen, W. M., Levinthal, D. A. "Absorptive Capacity: A New Perspective on Learning and Innovation." _Administrative Science Quarterly_ 35(1), 1990, pp. 128–152. doi:10.2307/2393553 <https://doi.org/10.2307/2393553>
@@ -274,4 +274,4 @@ Both halves of the resulting position — that the software ships and that the f
 
 ---
 
-_Every external claim in this paper is attributed. Where a source has been superseded or corrected by its own authors — reference 9 corrects reference 8 — both are cited, and the correction is stated in the body rather than in the reference list. Material from cited sources is paraphrased rather than reproduced._
+_Every external claim in this paper is attributed. Where a source has been superseded or corrected by its own authors, as reference 9 corrects reference 8, both are cited, and the correction is stated in the body rather than in the reference list. Material from cited sources is paraphrased rather than reproduced._
