@@ -60,7 +60,7 @@
 
 	<footer class="thesis-footer">
 		<div class="container thesis-footer__inner">
-			<p>Every claim above is meant to be checked.</p>
+			<p>Falsification criteria for each claim are stated in section 10.</p>
 			<a href="/factory">Return to the production system →</a>
 		</div>
 	</footer>

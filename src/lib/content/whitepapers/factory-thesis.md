@@ -1,8 +1,8 @@
 ---
 slug: 'factory-thesis'
 title: 'The Factory Thesis'
-subtitle: 'Why specification, verification, and retained capability — not model capability — decide what an AI-native production system can ship'
-summary: 'The published research on AI-assisted development does not converge on an effect size. That dispersion is the finding, and it locates the variance in the production system rather than the model.'
+subtitle: 'Specification, verification, and retained capability as the determinants of what an AI-native production system can ship'
+summary: 'Published research on AI-assisted software development does not converge on an effect size. The dispersion is itself the substantive result: it locates the variance in the production system rather than in the model.'
 version: '1.0'
 publishedAt: '2026-09-02'
 status: 'Living document. Superseded sections are revised, not deleted.'
@@ -11,201 +11,195 @@ referenceCount: 25
 
 ## Summary
 
-sXs describes itself as an AI software factory and claims that its production capability compounds. Both claims are unusual enough to deserve an argument rather than an assertion, because both are widely made and rarely evidenced.
+sXs describes itself as an AI software factory and claims that its production capability compounds. Both claims are widely made across the category and rarely evidenced, and they therefore warrant an argument rather than an assertion.
 
-This paper makes a narrow, falsifiable case. The published research on AI-assisted software development does not converge on a productivity number; it disperses, with credible controlled trials reporting effects from roughly 56% faster to 19% slower on comparable-sounding work. That dispersion is the finding. It implies that the model is not the differentiating asset, because every competitor can buy the same model. What differs is the production system the model operates inside: whether intent is made explicit before generation, whether verification has the capacity to keep up with generation, and whether anything is retained between builds.
+This paper sets out a narrow and falsifiable case. Published research on AI-assisted software development does not converge on a productivity figure: credible controlled trials report effects ranging from approximately 56% faster to 19% slower on superficially comparable work. The dispersion is itself the substantive result. It indicates that the model is not the differentiating asset, since equivalent model access is available to every competitor. The variable is the production system in which the model operates — whether intent is made explicit before generation, whether verification capacity keeps pace with generation capacity, and whether capability is retained between builds.
 
-The five stages sXs publishes — **Specify, Generate, Verify, Ship, Compound** — are not a branded methodology. Each exists because a specific, documented failure mode occurs without it. This paper names those failure modes, cites the evidence for them, states what would falsify the thesis, and marks the boundary between what the evidence supports and what remains our judgment.
+The five stages sXs publishes — **Specify, Generate, Verify, Ship, Compound** — are not offered as a proprietary methodology. Each corresponds to a documented failure mode that occurs in its absence. This paper identifies those failure modes, cites the evidence for them, states the observations that would falsify the thesis, and distinguishes what the evidence supports from what remains inference.
 
-One conclusion is uncomfortable for the category sXs competes in: the constraint on AI-assisted delivery has moved from writing code to establishing that code is correct. A factory that adds generation capacity without adding verification capacity does not ship faster. It accumulates unverified inventory.
+A further conclusion follows from the same evidence: the binding constraint on AI-assisted delivery has moved from writing code to establishing that code is correct. A production system that adds generation capacity without adding verification capacity does not ship more quickly; it accumulates unverified work in progress.
 
 ---
 
 ## 1. What is being claimed
 
-Precision first, because "AI software factory" is ambiguous enough to mean almost nothing.
+The term "AI software factory" is used loosely across the market. This section states the claims precisely, so that the remainder of the paper can be assessed against them.
 
-**We claim:**
+**Claimed:**
 
 1. A production system that makes intent explicit, verifies independently, and retains reusable capability can turn a serious product intention into operable software across unrelated product categories, with a small team.
 2. That system improves with use, because each build leaves behind capability that the next build inherits.
 3. AI belongs inside the production system. It does not have to be inside the product.
 
-**We do not claim:**
+**Not claimed:**
 
-1. A velocity multiplier. No figure is published without a defined baseline and comparable work.
+1. A velocity multiplier. No such figure is published without a defined baseline and comparable work.
 2. Autonomous delivery. Consequential boundaries retain a named human owner.
-3. That every output should share a platform. Unlike products are not forced into common infrastructure to lengthen a reuse ledger.
+3. That every output should share a platform. Unlike products are not consolidated onto common infrastructure in order to lengthen a reuse ledger.
 
-The rest of this paper is the argument for the first list and the reason for the second.
+Sections 2 to 9 argue the first set of claims. Sections 10 and 11 state the conditions under which they would fail and the grounds for the second set.
 
 ---
 
-## 2. "Factory" is a contested word, and we mean the contested part
+## 2. The software factory: lineage and inherited failure modes
 
-The software factory is not a new idea, and its history is mostly a history of failure. Engaging with that is more useful than borrowing the word and hoping nobody checks.
+The software factory is not a new concept, and its documented history is largely one of abandonment. That history bears directly on the term's use here, and is therefore addressed before the operating model is described.
 
 Michael Cusumano's research at MIT documented the Japanese software factories of the 1970s and 1980s — Hitachi, Toshiba, NEC, and Fujitsu — which centralised development, imposed process control and standardised methods, and treated reuse as a managed asset rather than an accident [1][2]. Fujitsu, for example, centralised systems software at its Numazu works and established a dedicated software factory department that performed detailed design, coding, and testing against specifications produced elsewhere [2].
 
-Two things about this record matter.
+Two features of this record are relevant. The first is that the approach was substantially abandoned by United States firms within approximately three years of being attempted [3]. The second concerns the reason. The term imported an analogy to the mass production of identical units, and that analogy does not hold for software: the marginal unit costs nothing to reproduce, the work is consequently design work in its entirety, and no two products constitute the same unit. Cusumano's survey of factory concepts and practices treats the analogy with corresponding caution [4].
 
-The first is that the approach was substantially abandoned in the United States within a few years of being attempted [3]. The second is why. "Factory" imported an analogy to the mass production of identical units, and that analogy is wrong for software: the marginal unit costs nothing to copy, so the work is entirely design work, and no two products are the same unit. Cusumano's own survey of factory concepts and practices treats the analogy with corresponding care [4].
+A second failure mode follows from the same framing, in that it invites the treatment of development as low-skill labour to be subdivided and reduced in cost. Retrospective commentary on those organisations argues that this occurred, with software work carrying low status and remuneration comparable to clerical roles [5]. That source is cited as commentary rather than as settled history. The hazard is nonetheless material irrespective of how far the account generalises, since a production system that deskills its operators removes the judgment on which it depends.
 
-There is a second failure mode in the framing: it invites treating development as low-skill labour to be subdivided and cheapened. Retrospective commentary on those organisations argues this is what happened, with software work carrying low status and pay comparable to clerical roles [5]. We cite that as commentary rather than settled history — but the hazard is real regardless of how far it generalises, because a production system that deskills its operators destroys the judgment it depends on.
-
-So the word carries real risk. It is currently being applied to defence software pipelines and, increasingly, to vendors selling agent orchestration with velocity claims attached. Some of those uses reduce to "cheaper outsourced labour, now with models."
+The term therefore carries a substantial risk of being misread. It is currently applied both to defence software pipelines and, increasingly, to vendors offering agent orchestration with accompanying velocity claims. In several of the latter cases the underlying offer is lower-cost outsourced development with model assistance added.
 
 **What sXs inherits from the lineage:** process discipline, explicit standards, reuse treated as a capital asset, and measurement of the production system itself rather than only its output.
 
-**What sXs rejects:** uniform output as a goal, division of work into deskilled steps, and factory-as-cheap-volume. A factory in our sense is a system that gives _unlike_ products a disciplined path from intention to release. It standardises the production method, not the product.
+**What sXs rejects:** uniform output as an objective, the division of work into deskilled steps, and the equation of a factory with low-cost volume. A factory in the sense used here is a system that provides _unlike_ products with a disciplined path from intention to release. It standardises the production method rather than the product.
 
-This is not a semantic dodge. It is the load-bearing distinction, and section 8 argues it is also where the durable commercial advantage sits.
+The distinction is not merely terminological. Section 8 argues that it is also where the durable commercial advantage lies.
 
 ---
 
-## 3. The evidence problem: AI's effect on delivery is not a constant
+## 3. The empirical record: reported effect sizes do not converge
 
-If AI-assisted development had a stable effect size, the best production system would be the one with the best model access, and this paper would be unnecessary. The literature says otherwise.
+If AI-assisted development produced a stable effect size, the strongest production system would be the one with the best model access, and no further argument would be required. The published literature does not support that premise.
 
-### 3.1 The optimistic controlled trials
+### 3.1 Trials reporting positive effects
 
 Peng, Kalliamvakou, Cihon, and Demirer ran a controlled experiment in which 95 programmers recruited through Upwork implemented an HTTP server in JavaScript against a fixed twelve-check test suite. The group with GitHub Copilot finished 55.8% faster — 71 minutes against 161 — with a 95% confidence interval of 21% to 89% and p = 0.0017 [6].
 
-This is a real, well-executed result, and it is the single most over-generalised number in the category. Four constraints, all stated by the authors: the task was standardised, greenfield, and self-contained, with no existing codebase to comprehend and no maintenance horizon; participants were freelancers averaging six years of experience rather than maintainers of the system in question; the study explicitly did **not** examine code quality, which the authors flag as a limitation with security and performance implications; and the benefit was _largest for the least experienced developers_. Hold that last point — section 3.4 depends on it.
+The result is methodologically sound, and it is also frequently generalised beyond the conditions under which it was obtained. The authors state four constraints. The task was standardised, greenfield, and self-contained, presenting no existing codebase to comprehend and no maintenance horizon. Participants were freelancers averaging six years of experience rather than maintainers of the system in question. The study did not examine code quality, which the authors identify as a limitation carrying security and performance implications. Finally, the measured benefit was largest for the least experienced developers. The last of these is revisited in section 3.4.
 
 Paradis and colleagues at Google ran an enterprise-based randomised controlled trial with 96 full-time engineers on a complex, enterprise-grade task: roughly 21% faster, 96 minutes against 114. The authors report a wide confidence interval and explicitly invite caution about generalising beyond their tooling and the summer of 2024 [7].
 
-### 3.2 The pessimistic controlled trial, and its correction
+### 3.2 A trial reporting a negative effect, and its subsequent correction
 
-METR studied 16 experienced open-source developers completing 246 tasks in mature repositories they had worked on for an average of five years, using the early-2025 frontier — Cursor Pro with Claude 3.5/3.7 Sonnet. Allowing AI increased completion time by 19%. The striking result was not the slowdown but the perception gap: participants forecast a 24% reduction beforehand and still estimated a 20% reduction _after_ finishing, while domain experts had predicted improvements near 38–39% [8].
+METR studied 16 experienced open-source developers completing 246 tasks in mature repositories they had worked on for an average of five years, using the early-2025 frontier — Cursor Pro with Claude 3.5/3.7 Sonnet. Allowing AI increased completion time by 19%. The more notable result is the accompanying perception gap: participants forecast a 24% reduction beforehand and still estimated a 20% reduction after completing the work, while domain experts had predicted improvements of approximately 38 to 39% [8].
 
-That study is widely cited. It should be cited with its sequel. In February 2026 METR published a revision of its own experimental design and reported that the newer data points toward a speedup — approximately 18% for the subset of returning developers and about 4% for new recruits — but with confidence intervals crossing zero in both cases. METR's own assessment is that developers are likely more sped up in 2026 than its early-2025 estimate suggested, that severe selection effects bias its estimates downward (developers increasingly decline to participate rather than work without AI, and withhold precisely the tasks where they expect the most uplift), and that their figures should be read as a lower bound [9].
+The study is widely cited, and should be read together with its successor. In February 2026 METR published a revision of its own experimental design, reporting that the newer data indicates a speedup of approximately 18% for the subset of returning developers and approximately 4% for new recruits, with confidence intervals crossing zero in both cases. METR assesses that developers are likely more assisted in 2026 than its early-2025 estimate indicated, that selection effects bias its estimates downward — developers increasingly decline to participate rather than work without AI, and withhold the tasks for which they expect the greatest benefit — and that its figures should be read as a lower bound [9].
 
-The honest summary is therefore not "AI makes developers slower." It is that **task-level measurement of this effect is currently unreliable, and the people doing the most rigorous work on it say so**. Anyone quoting the 19% figure as a current fact — in either direction — is citing a superseded snapshot.
+The defensible summary is therefore not that AI slows developers down, but that task-level measurement of the effect is currently unreliable, a limitation stated by the researchers conducting the most rigorous work on it. Citing the 19% figure as a current finding, in either direction, treats a superseded estimate as settled.
 
-### 3.3 The organisational level, where the picture is more consistent
+### 3.3 Organisational-level measurement
 
-Individual task time is the wrong unit anyway. Products are shipped by organisations.
+Individual task time is in any case not the decisive unit of analysis, since software is delivered by organisations rather than by individuals.
 
 DORA's 2024 report found that AI adoption raised individual productivity, flow, and job satisfaction while _reducing_ software delivery throughput by an estimated 1.5% and stability by 7.2%; 39% of respondents reported little or no trust in AI-generated code [10]. The 2025 report found the throughput relationship had turned positive as teams learned where AI helps — while the negative relationship with delivery _stability_ persisted for a second consecutive year [11].
 
 Faros AI's telemetry analysis across more than 10,000 developers and 1,255 teams found the same shape from a different direction: high-AI-adoption teams completed 21% more tasks and merged 98% more pull requests, while pull request review time rose 91% and PR size grew 154% — with no measurable improvement in organisational DORA metrics [12]. Their 2026 follow-up reports the pattern intensifying: larger changes, roughly five times the median review time, and materially more incidents per pull request [13].
 
-### 3.4 What the dispersion implies
+### 3.4 Interpretation of the dispersion
 
-Set the numbers side by side: −19% to +56% at the task level, and at the organisational level a consistent split in which individual output rises while delivery outcomes stay flat or degrade in stability.
+Taken together, the reported effects span −19% to +56% at the task level, while organisational measurement shows a consistent pattern in which individual output rises and delivery outcomes remain flat or degrade in stability.
 
-The two extremes are not actually in conflict, and noticing why is the whole argument. The +56% trial measured inexperienced freelancers building a self-contained artefact from nothing, with code quality explicitly unmeasured, and found the _least_ experienced benefited most. The −19% trial measured expert maintainers making changes inside large codebases they knew intimately, where quality standards were implicit and high. These are close to opposite ends of two axes — codebase maturity and developer expertise — and the results order themselves accordingly. AI-assisted generation is most valuable where the constraints are fewest and the operator's own knowledge is thinnest. It is least valuable, and can be negative, where the binding difficulty is comprehending an existing system and holding to its standards.
+The two extremes are not in conflict, and the reason they are not is central to the argument. The trial reporting +56% measured inexperienced freelancers constructing a self-contained artefact from nothing, without measuring code quality, and found the largest benefit among the least experienced participants. The trial reporting −19% measured expert maintainers making changes within large codebases they knew in detail, where quality standards were implicit and high. These conditions sit at close to opposite ends of two variables, codebase maturity and operator expertise, and the results order themselves accordingly. AI-assisted generation delivers most value where constraints are fewest and the operator's own knowledge is thinnest, and least value — potentially negative value — where the binding difficulty is comprehending an existing system and conforming to its standards. The latter set of conditions describes the regime in which a factory producing durable products ordinarily operates.
 
-Which is precisely the regime a factory building durable products operates in.
+A multivocal review of 67 sources published in 2026 designates this pattern the Productivity–Reliability Paradox, attributing it to the interaction between non-deterministic generators and insufficient specification discipline. It identifies task abstraction, codebase maturity, and developer experience as moderating variables, and the code review bottleneck as an amplifying mechanism. Its conclusion is that specification discipline, rather than model capability, is the binding constraint on the dependability of AI-assisted software [14].
 
-A recent multivocal review of 67 sources gives this pattern a name — the Productivity–Reliability Paradox — and attributes it to the interaction between non-deterministic generators and insufficient specification discipline, identifying task abstraction, codebase maturity, and developer experience as moderators, and the code review bottleneck as an amplifying mechanism. Its conclusion is stated bluntly: specification discipline, not model capability, is the binding constraint on the dependability of AI-assisted software [14].
+sXs reached the same structural conclusion from practice, and it constitutes the thesis of this paper. Two consequences follow.
 
-We arrived at the same structural conclusion from building, and it is the thesis of this paper. Two consequences follow immediately:
-
-- **The model is not the asset.** Frontier model capability is a purchasable input that improves for every competitor simultaneously. A production advantage built on it is not an advantage.
-- **Generation was never the constraint.** Which is why the remainder of this paper spends more words on specification, verification, and retention than on generation.
+- **The model is not the asset.** Frontier model capability is a purchasable input that improves for every competitor simultaneously. A production advantage founded on it is not an advantage.
+- **Generation was not the constraint.** The remainder of this paper accordingly treats specification, verification, and retention at greater length than generation.
 
 ---
 
-## 4. Why generation alone cannot be the advantage
+## 4. The limits of generation as a source of advantage
 
-Frederick Brooks separated the difficulty of software into the _essential_ — building the conceptual structure of the thing — and the _accidental_ — expressing that structure in a language and fitting it to a machine. His argument was arithmetic: unless accidental tasks consume more than nine-tenths of total effort, eliminating them entirely still cannot yield an order-of-magnitude improvement [15].
+Frederick Brooks distinguished the _essential_ difficulty of software — constructing the conceptual structure of the system — from the _accidental_ difficulty of expressing that structure in a language and fitting it to a machine. His argument was arithmetic: unless accidental tasks consume more than nine-tenths of total effort, eliminating them entirely cannot yield an order-of-magnitude improvement [15].
 
-Language models are extraordinarily good at accidental complexity. They translate intent into syntax, recall idioms, adapt patterns across a codebase, and produce serviceable first drafts of documentation. That is genuine leverage and sXs uses it heavily.
+Language models address accidental complexity effectively. They translate intent into syntax, recall idioms, adapt patterns across a codebase, and produce serviceable first drafts of documentation. This is genuine leverage, and sXs relies on it.
 
-But deciding what must be true, which failure modes are unacceptable, where a boundary belongs, and what a user actually needs is essential work. It does not disappear when generation gets cheap. It becomes the larger share of the remaining effort — and, by Brooks's arithmetic, the ceiling on what generation alone can deliver.
+Determining what must be true, which failure modes are unacceptable, where a boundary belongs, and what a user requires is essential work. It does not diminish as generation becomes less costly. It becomes instead the larger share of the remaining effort and, by Brooks's arithmetic, the ceiling on what generation alone can deliver.
 
-This is the concrete reason sXs publishes no multiplier. Not modesty: the arithmetic does not support one, and the measurement literature (section 3.2) cannot currently establish one.
+This is the reason sXs publishes no productivity multiplier. The arithmetic does not support one, and the measurement literature discussed in section 3.2 cannot presently establish one.
 
 ---
 
-## 5. Specify — the constraint that gates everything downstream
+## 5. Specify: specification as a precondition for verification
 
-If specification discipline is the binding constraint [14], it is worth being clear about _why_, because "write specs" is easy to hear as bureaucracy.
+If specification discipline is the binding constraint [14], the mechanism by which it operates warrants statement, since specification is readily mistaken for administrative overhead.
 
-Spear and Bowen's study of the Toyota Production System offers the mechanism. They found that Toyota's advantage was not its visible tools and practices but that every activity was specified as an explicit hypothesis, so that any deviation became immediately visible and therefore available as information [16]. Specification is what converts an outcome into evidence. Without it, a result is an anecdote.
+Spear and Bowen's study of the Toyota Production System identifies that mechanism. They found that Toyota's advantage lay not in its visible tools and practices but in the specification of every activity as an explicit hypothesis, such that any deviation became immediately visible and therefore available as information [16]. Specification is what converts an outcome into evidence; without it, an outcome remains an anecdote.
 
-This generalises exactly to model-driven production. A generated change either satisfies a stated expectation or it does not. Absent that expectation, "it looks right" is the only available test — and section 6 shows why that is the weakest possible gate against this particular failure mode. Specification is therefore not documentation overhead. It is the precondition for verification, and, because it makes deviation legible, the precondition for improvement.
+The principle transfers directly to model-driven production. A generated change either satisfies a stated expectation or it does not. In the absence of that expectation, apparent correctness is the only available test, and section 6 sets out why this is the weakest available gate against the failure mode in question. Specification is consequently not documentation overhead. It is the precondition for verification and, because it renders deviation legible, the precondition for improvement.
 
 Consequential decisions need the same treatment over a longer horizon. Architecture decision records, in the lightweight form Michael Nygard proposed in 2011, capture a single significant decision with its context and accepted consequences, stored beside the code [17]. In an AI-native system this acquires a second function: the record becomes context that later human _and_ model work reads, so the reasoning behind a system's present shape survives the departure of whoever held it. sXs maintains this as production infrastructure rather than documentation habit — ADR Power as the source capability, compiled through Kanon and reused across builds.
 
 ---
 
-## 6. Verify — the constraint moved here, and most systems have not noticed
+## 6. Verify: relocation of the binding constraint
 
-This is the section that matters most, and it is where sXs differs most sharply from the category.
+This section sets out the verification argument, which carries the greater part of the operating model's practical weight.
 
-### 6.1 Constraint relocation
+### 6.1 Evidence of relocation
 
-Generation cost fell dramatically. The cost of establishing that a change is correct did not.
+The cost of generating a change has fallen substantially. The cost of establishing that a change is correct has not.
 
-The consequence is a textbook constraint relocation: adding capacity upstream of a stage that is already saturated does not raise throughput. It lengthens the queue in front of that stage. Faros's data is precisely this signature — 98% more merged pull requests, 91% longer review times, 154% larger changes, flat organisational delivery [12], intensifying in 2026 to roughly five times the median review time and more incidents per pull request [13]. DORA's persistent negative relationship between AI adoption and delivery _stability_, across two consecutive years [10][11], is the same phenomenon measured after release instead of before it. A recent analysis of code review in the AI era reaches the same conclusion: increased production velocity expands the volume requiring review, turning review into a growing bottleneck [18].
+The consequence is a relocation of the binding constraint. Adding capacity upstream of a stage that is already saturated does not raise throughput; it lengthens the queue in front of that stage. Faros's data exhibits this signature: 98% more merged pull requests, 91% longer review times, 154% larger changes, and flat organisational delivery [12], intensifying in 2026 to approximately five times the median review time and a higher incident rate per pull request [13]. DORA's persistent negative relationship between AI adoption and delivery _stability_ across two consecutive years [10][11] is the same phenomenon measured after release rather than before it. An analysis of code review under AI-assisted development reaches the same conclusion, finding that increased production velocity expands the volume requiring review and thereby renders review a growing bottleneck [18].
 
-**A factory that scales generation without scaling verification does not produce software faster. It produces unverified inventory faster.**
+A production system that scales generation without scaling verification does not produce software more quickly. It produces unverified work in progress more quickly.
 
-### 6.2 Why human review is the wrong instrument on its own
+### 6.2 The limits of human review
 
-Two findings make this specific.
+Two findings bear on this directly.
 
-Perry, Srivastava, Kumar, and Boneh found that participants with access to an AI assistant wrote significantly less secure code than those without — and were _more_ likely to believe their code was secure [19]. The error rate rose and confidence rose with it. Confidence is what calibrates review attention, so this failure mode actively defeats the mechanism meant to catch it.
+Perry, Srivastava, Kumar, and Boneh found that participants with access to an AI assistant wrote significantly less secure code than those without, and were also more likely to believe their code was secure [19]. Both the error rate and reported confidence rose. Since confidence calibrates the attention a reviewer allocates, this failure mode tends to defeat the mechanism intended to detect it.
 
-The Stack Overflow 2025 developer survey supports this from practitioner experience: more developers actively distrust AI accuracy (46%) than trust it (33%), with only 3% highly trusting it, and the most-cited frustration is output that is "almost right, but not quite" [20]. _Almost right_ is the hardest possible input for human review. It passes a plausibility scan. It fails on a detail that a type system, a test, or a schema check would have caught deterministically and instantly.
+The 2025 Stack Overflow developer survey corroborates this from practitioner experience. More developers actively distrust the accuracy of AI tools (46%) than trust it (33%), only 3% report high trust, and the most frequently cited frustration is output that is "almost right, but not quite" [20]. Output that is almost correct is the most difficult input for human review: it survives a plausibility check while failing on a detail that a type system, a test, or a schema check would identify deterministically.
 
-Structural quality signals point the same way. GitClear's analysis of 211 million changed lines from 2021 to 2025 found moved or refactored code falling from about 25% of changes to under 10%, while duplicated code rose from roughly 8% to 18%; their 2026 report records duplication up 81%, refactoring down 70%, error-masking constructs up 47%, and two-week churn up 15% [21][22]. These are maintainability costs that accrue silently and are invisible to any single review.
+Structural quality indicators point in the same direction. GitClear's analysis of 211 million changed lines between 2021 and 2025 found moved or refactored code declining from approximately 25% of changes to under 10%, while duplicated code rose from approximately 8% to 18%. Its 2026 report records duplication up 81%, refactoring down 70%, error-masking constructs up 47%, and two-week churn up 15% [21][22]. These are maintainability costs that accrue incrementally and are not visible to any single review.
 
-### 6.3 The design consequence
+### 6.3 Design consequences
 
-The response is not more reviewers. Review capacity cannot scale with generation capacity, and each additional change would receive less attention rather than more.
+Increasing reviewer headcount does not resolve this. Review capacity cannot scale with generation capacity, and each additional change would receive less attention rather than more. The available response is to change what human attention is spent on.
 
-The response is to change what human attention is spent on:
+- **Baseline correctness is established mechanically and deterministically,** through types, schemas, contracts, tests, builds, linters, and evaluations. Mechanical checks do not tire, do not become complacent, and do not accept almost-correct output as plausible.
+- **Human attention is reserved for intent, consequence, and irreversibility** — the essential complexity described in section 4, which no automated gate can adjudicate.
+- **Verification is defined before generation begins.** Where acceptance cannot be stated in advance, the work is not ready to be generated. This is an existing sXs guardrail, and section 5 states why it is enforceable.
+- **Deterministic checks are preferred wherever a model contributes no judgment.** A check that can be performed as a string comparison should not be a model call, being cheaper, reproducible, and not subject to interpretation.
 
-- **Baseline correctness becomes deterministic and mechanical.** Types, schemas, contracts, tests, builds, linters, and evaluations. These do not tire, do not become complacent, and do not find "almost right" plausible.
-- **Human attention is reserved for intent, consequence, and irreversibility** — the essential complexity of section 4, which no gate can adjudicate.
-- **Verification is defined before generation begins.** If acceptance cannot be stated in advance, the work is not ready to generate. This is an existing sXs guardrail, and section 5 is the reason it is enforceable.
-- **Determinism is preferred wherever a model is not adding judgment.** A check that can be a string comparison should not be a model call — it is cheaper, reproducible, and cannot be argued with.
-
-Datalinks is the clearest instance of this discipline in our own portfolio: source notes are pure projections containing no model output, so regeneration is byte-identical; extraction is gated by rubrics the user owns, with every criterion verdict recorded including rejections; quote verification runs as a string search first so only near-misses reach a model; and secret redaction never uses a model at all — partly because a model misses things unreproducibly, and mostly because routing a secret through a model to ask whether it is a secret has already leaked it. That last point generalises: some verification must be deterministic not for cost but because a probabilistic check is _categorically_ the wrong instrument.
+Datalinks is the clearest instance of this discipline within the sXs portfolio. Source notes are pure projections containing no model output, so that regeneration is byte-identical. Extraction is gated by rubrics the user owns, with every criterion verdict recorded, including rejections. Quote verification is performed as a string search first, so that only near-misses reach a model. Secret redaction does not use a model at all, partly because a model fails unreproducibly and principally because routing a secret through a model in order to ask whether it is a secret has already disclosed it. The final point generalises: some verification must be deterministic not for reasons of cost but because a probabilistic check is categorically unsuited to the task.
 
 ---
 
-## 7. Ship — operability is the standard, not release
+## 7. Ship: operability as the completion criterion
 
-DORA's stability finding deserves separating from its throughput finding, because the two have different causes. Throughput turned positive by 2025 as teams learned to use the tools; stability did not [11]. Stability is measured by what happens _after_ a change reaches users — change failure rate and recovery time.
+DORA's stability finding warrants separation from its throughput finding, since the two have different causes. Throughput turned positive by 2025 as teams established where the tools were useful; stability did not [11]. Stability is measured by what occurs _after_ a change reaches users, through change failure rate and recovery time.
 
-That is a shipping discipline, not a coding one. It is why sXs treats the definition of done as operable rather than merged: code, documentation, deployment, observability, and a named ownership path. A change that ships and then degrades has not been produced faster; its cost has been deferred and made someone's incident.
-
----
-
-## 8. Compound — why retained capability is the only defensible asset
-
-The compounding claim is the most commercially significant and the hardest to evidence. Two established lines of work explain the mechanism.
-
-Cohen and Levinthal's concept of **absorptive capacity** holds that a firm's ability to recognise the value of new external knowledge, assimilate it, and apply it commercially is largely a function of its _prior related knowledge_ [23]. This is the precise mechanism behind "the factory compounds," and it explains something otherwise puzzling about the present moment. Model capability is a rising tide reaching every competitor at once. What determines whether an organisation converts a new model, harness, or protocol into shipped software is the capability it already holds — its specifications, verification surfaces, decision records, and reusable production knowledge. Prior capability sets the rate at which the next external advance can be exploited. Two organisations receive the identical model upgrade and get materially different value from it.
-
-Teece, Pisano, and Shuen's **dynamic capabilities** framework makes the strategic consequence explicit: advantage lies in the ability to integrate and reconfigure competences in a changing environment, not in holding a fixed resource [24]. A frontier model is a fixed, purchasable, universally available resource. The capacity to integrate one accountably is not purchasable, and is what sXs is actually building.
-
-This is why reusable capability is treated as retained earnings rather than a by-product, and why Kanon, ADR Power, and Byron Powers are maintained as products in their own right rather than internal tooling.
-
-It is also why the Factory Ledger is deliberately small. A capability earns an entry only when a _later_ build demonstrably uses it. Reuse asserted in advance is a plan; reuse recorded after the fact is evidence. Keeping the ledger short is what makes it worth reading — and, per section 10, what makes the compounding claim falsifiable rather than decorative.
+This is a property of shipping discipline rather than of coding. It is the reason sXs defines completion as operable rather than merged, comprising code, documentation, deployment, observability, and a named ownership path. A change that ships and subsequently degrades has not been produced more quickly; its cost has been deferred and transferred to operations.
 
 ---
 
-## 9. The seam — where human judgment stays, and why it must be placed deliberately
+## 8. Compound: retained capability as the durable asset
 
-The symbolic × subsymbolic seam is a production decision: which parts of the work carry explicit structure, and which are left to learned synthesis. Section 6.3 gives its verification logic. There is a separate and older reason it cannot be allowed to drift.
+The compounding claim is the most commercially significant element of the thesis and the most difficult to evidence. Two established lines of work identify the mechanism.
 
-Lisanne Bainbridge's "Ironies of Automation" observed that automating most of a task does not remove the human — it converts them into a monitor, a role humans perform poorly, while degrading the very skills required to intervene when the automation fails [25]. Automate the routine and the operator loses fluency in exactly the situations where their judgment is finally needed.
+Cohen and Levinthal's concept of **absorptive capacity** holds that a firm's ability to recognise the value of new external knowledge, assimilate it, and apply it commercially is largely a function of its _prior related knowledge_ [23]. This is the mechanism underlying the claim that the factory compounds. Model capability improves for all competitors simultaneously. What determines whether an organisation converts a new model, harness, or protocol into shipped software is the capability it already holds: its specifications, verification surfaces, decision records, and reusable production knowledge. Prior capability sets the rate at which the next external advance can be exploited. Two organisations receiving an identical model upgrade will therefore realise materially different value from it.
 
-The parallel to model-driven production is direct, and Perry et al.'s confidence inversion [19] is Bainbridge's irony in a coding context: the tool increases the error rate and the operator's confidence at the same time.
+Teece, Pisano, and Shuen's **dynamic capabilities** framework states the strategic consequence: advantage lies in the ability to integrate and reconfigure competences in a changing environment rather than in holding a fixed resource [24]. A frontier model is a fixed, purchasable, and universally available resource. The capacity to integrate one accountably is none of these, and it is that capacity sXs is building.
 
-The design conclusion is that judgment cannot be whatever is left over after automation. It has to be positioned deliberately, at boundaries chosen because they are consequential: what the product must do, which risks are unacceptable, which decisions are irreversible, and whether a release is acceptable. Those boundaries keep a named human owner. This is not a concession to caution; it is what keeps the skill alive where it is load-bearing.
+Reusable capability is consequently treated as retained earnings rather than as a by-product, and Kanon, ADR Power, and Byron Powers are maintained as products in their own right rather than as internal tooling.
+
+The same reasoning accounts for the Factory Ledger being deliberately small. A capability earns an entry only when a _later_ build demonstrably uses it. Reuse asserted in advance is a plan; reuse recorded after the fact is evidence. A short ledger is therefore more informative than a long one, and, as section 10 sets out, it is what renders the compounding claim falsifiable.
 
 ---
 
-## 10. What would falsify this thesis
+## 9. The symbolic–subsymbolic seam: placement of human judgment
 
-A production claim that cannot fail is marketing. Each element of the thesis has a specific disconfirming observation.
+The symbolic × subsymbolic seam is a production decision concerning which parts of the work carry explicit structure and which are left to learned synthesis. Section 6.3 states its verification logic. A separate and older consideration determines why its position cannot be allowed to drift.
+
+Lisanne Bainbridge's "Ironies of Automation" observed that automating the majority of a task does not remove the human operator but converts that operator into a monitor, a role humans perform poorly, while degrading the skills required to intervene when the automation fails [25]. Automating routine work therefore erodes the operator's fluency in precisely the circumstances where judgment is eventually required.
+
+The parallel to model-driven production is direct. The confidence inversion reported by Perry et al. [19] is Bainbridge's observation in a software context: the tool raises the error rate and the operator's confidence concurrently.
+
+The design conclusion is that judgment cannot be whatever remains after automation. It must be positioned deliberately, at boundaries selected because they are consequential: what the product must do, which risks are unacceptable, which decisions are irreversible, and whether a release is acceptable. Those boundaries retain a named human owner. The purpose is not caution but the maintenance of competence where that competence is load-bearing.
+
+---
+
+## 10. Falsification criteria
+
+A claim that admits no disconfirming observation is not testable. Each element of the thesis is therefore paired below with an observation that would falsify it and with the indicator where that observation would appear.
 
 | Claim                                                 | What would falsify it                                                                                           | Where it is checkable                                                |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -216,37 +210,37 @@ A production claim that cannot fail is marketing. Each element of the thesis has
 | Reuse is genuine, not forced                          | Unlike products require a brittle shared platform; changes to one break another                                 | Independence of the product repositories                             |
 | AI belongs in production, not necessarily the product | Only AI-containing products ship successfully                                                                   | The portfolio itself — PerfectStar 2K contains no model              |
 
-Two standing commitments follow. No speed, quality, or autonomy claim is published without a defined baseline and comparable work. And a capability that never reaches a second build is recorded as unreused rather than quietly removed from the ledger.
+Two standing commitments follow. No claim regarding speed, quality, or autonomy is published without a defined baseline and comparable work. A capability that never reaches a second build is recorded as unreused rather than removed from the ledger.
 
 ---
 
 ## 11. Limits and open questions
 
-Stating these is part of the argument, not a disclaimer appended to it.
+The following limitations qualify the argument above and are stated as part of it.
 
-**Our own evidence is small-n.** sXs is a small team with a portfolio measured in single digits. Nothing in section 10 constitutes a controlled study, and we do not present the ledger as one. It is an audit trail.
+**The sXs evidence base is small.** sXs is a small team with a portfolio measured in single digits. Nothing in section 10 constitutes a controlled study, and the ledger is not presented as one. It is an audit trail.
 
-**The external literature lags the tools.** Most of the rigorous work cited here studies autocomplete-style assistants and early agentic tools. Multi-agent and long-horizon agentic workflows — increasingly how the factory actually operates — are substantially less studied. Section 3's numbers should be treated as evidence about a _previous_ generation of tooling.
+**The external literature lags the tooling.** Most of the rigorous work cited here examines autocomplete-style assistants and early agentic tools. Multi-agent and long-horizon agentic workflows, which increasingly describe how the factory operates, are substantially less studied. The figures in section 3 should be treated as evidence concerning a _previous_ generation of tooling.
 
-**Measurement itself is unsettled.** METR's redesign [9] is the clearest available demonstration that task-level productivity measurement in this domain is genuinely hard, and getting harder as refusing to work without AI becomes common enough to bias participation. We expect the published effect sizes to keep moving.
+**Measurement is itself unsettled.** METR's redesign [9] is the clearest available demonstration that task-level productivity measurement in this domain is difficult, and becoming more so as declining to work without AI becomes common enough to bias participation. Published effect sizes should be expected to continue moving.
 
-**Delivery metrics are not product value.** Throughput and stability say nothing about whether the software was worth building. A factory optimised purely on delivery indicators could ship useless products efficiently. This is why sXs measures product indicators separately, and why the portfolio is organised by role rather than by AI relevance.
+**Delivery metrics are not a measure of product value.** Throughput and stability indicate nothing about whether the software was worth building, and a factory optimised solely on delivery indicators could ship unwanted products efficiently. sXs therefore measures product indicators separately, and organises the portfolio by role rather than by AI relevance.
 
-**The compounding claim is the least evidenced and the most load-bearing.** Absorptive capacity and dynamic capabilities are well-established in the strategy literature but were not developed for two-person production systems, and the transfer is our inference. It is also the claim most likely to be quietly wrong, which is the reason for keeping the ledger conservative.
+**The compounding claim is the least evidenced and the most load-bearing.** Absorptive capacity and dynamic capabilities are well established in the strategy literature but were not developed for two-person production systems, and their application here is inference. It is also the claim most likely to be wrong without that being immediately apparent, which is the reason for maintaining a conservative ledger.
 
-**A vocabulary risk remains.** Section 2 argues the historical software factory failed partly because the analogy licensed deskilling. That risk does not disappear because we have named it. It reappears every time a task looks routine enough to stop thinking about, which is precisely Bainbridge's point [25].
+**A terminological risk remains.** Section 2 argues that the historical software factory failed partly because the analogy licensed deskilling. Naming that risk does not remove it. It recurs whenever a task appears routine enough to stop examining, which is Bainbridge's point [25].
 
 ---
 
 ## 12. Conclusion
 
-The evidence does not support the claim that AI makes software development uniformly faster, and it does not support the claim that it makes it worse. It supports something more useful: that the effect is highly conditional, and that the conditions are properties of the production system rather than the model.
+The evidence does not support the claim that AI makes software development uniformly faster, nor the claim that it makes it worse. It supports a narrower conclusion: the effect is strongly conditional, and the conditions are properties of the production system rather than of the model.
 
-Three of those conditions are now reasonably well evidenced. Explicit specification is the binding constraint on dependability [14][16]. Verification, not generation, is where the constraint now sits, and it does not scale by adding reviewers [12][13][18][19][20]. Retained capability determines how much of each external advance an organisation can convert into shipped software [23][24].
+Three of those conditions are now reasonably well evidenced. Explicit specification is the binding constraint on dependability [14][16]. Verification rather than generation is where the constraint now sits, and it does not scale through the addition of reviewers [12][13][18][19][20]. Retained capability determines how much of each external advance an organisation can convert into shipped software [23][24].
 
-That is the whole of the sXs thesis, and it is why the operating model is five stages rather than one. Generation is the cheapest of them and the only one the market talks about.
+This constitutes the sXs thesis, and it is why the operating model comprises five stages rather than one. Generation is the least costly of the five and the most frequently discussed.
 
-The software ships. The factory compounds. Both are meant to be checked.
+Both halves of the resulting position — that the software ships and that the factory compounds — are stated so that they can be checked. Section 10 specifies how.
 
 ---
 
@@ -280,4 +274,4 @@ The software ships. The factory compounds. Both are meant to be checked.
 
 ---
 
-_Every external claim in this paper is attributed. Where a source has been superseded or corrected by its own authors — reference 9 corrects reference 8 — both are cited, and the correction is stated in the body rather than the footnotes. Content from cited sources is paraphrased rather than reproduced._
+_Every external claim in this paper is attributed. Where a source has been superseded or corrected by its own authors — reference 9 corrects reference 8 — both are cited, and the correction is stated in the body rather than in the reference list. Material from cited sources is paraphrased rather than reproduced._
