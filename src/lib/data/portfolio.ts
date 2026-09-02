@@ -72,61 +72,76 @@ export const products: PortfolioItem[] = [
 		featured: true
 	},
 	{
-		slug: 'world-monitor-sxs',
+		slug: 'archipelago',
 		kind: 'product',
 		classification: 'Product',
-		name: 'World Monitor · sXs',
+		name: 'Archipelago',
 		summary:
-			'A real-time global intelligence interface that brings AI-synthesized briefs, infrastructure signals, finance data, and geospatial monitoring into one system.',
+			'A federated text-world engine for ergodic literature: sovereign realms authored in Markdown, played over SSH or the browser, whose events become part of a permanent world record.',
 		audience:
-			'Analysts and operators who need a unified view of fast-moving geopolitical and infrastructure signals.',
-		status: 'Maintained',
-		origin: 'sXs product variant · maintained fork of World Monitor',
-		role: 'Variant development, integration, deployment, and maintenance',
+			'Readers who want a text world to inhabit, and authors and operators who want to run a sovereign one.',
+		status: 'Building',
+		origin: 'Thinking Sage · original product',
+		role: 'Built and maintained through the sXs factory',
 		latestRelease: {
-			label: 'Current sXs branch',
-			date: '2026-03-22',
-			summary: 'The sXs branch supports focused site variants and native desktop distribution.',
-			href: 'https://github.com/stevenjmiklovic/worldmonitor/commits/sxs-main'
+			label: 'v0.5.2',
+			date: '2026-08-21',
+			summary:
+				'The current release runs the local realm end to end, with federation foundations and sea travel in place.',
+			href: 'https://eventide.cc/archipelago/'
 		},
 		factoryContribution:
-			'Expanded the factory’s patterns for variant-driven products, data-rich interfaces, protocol contracts, and cross-platform delivery.',
-		stages: ['Generate', 'Verify', 'Ship', 'Compound'],
-		tags: ['TypeScript', 'Tauri', 'Geospatial AI'],
+			'Extended the factory’s patterns for event-sourced state, content-as-data authoring pipelines, capability-scoped authority, and protocol work with an explicitly marked implementation boundary.',
+		stages: ['Specify', 'Generate', 'Verify', 'Ship'],
+		tags: ['Elixir', 'OTP', 'Federated text worlds'],
 		links: [
 			{
-				label: 'View source',
-				href: 'https://github.com/stevenjmiklovic/worldmonitor',
-				kind: 'source'
+				label: 'Project page',
+				href: 'https://eventide.cc/archipelago/',
+				kind: 'live'
+			},
+			{
+				label: 'Read the docs',
+				href: 'https://eventide.cc/archipelago/docs/',
+				kind: 'docs'
 			}
 		],
 		featured: true
 	},
 	{
-		slug: 'rhiza',
+		slug: 'datalinks',
 		kind: 'product',
 		classification: 'Lab',
-		name: 'Rhiza',
+		name: 'Datalinks',
 		summary:
-			'An AI-assisted etymology explorer that traces Greek roots in English words and renders their relationships as interactive graphs.',
+			'An agent wiki that turns a Zotero library and agent session logs into a maintained research vault where every assertion traces to a source it can verify.',
 		audience:
-			'Curious readers, students, and researchers exploring how Greek roots connect English vocabulary.',
+			'Researchers and scholars who need to know where their sources disagree and which conclusions rest on a single paper.',
 		status: 'Building',
 		origin: 'Thinking Sage · research product',
 		role: 'Unified sXs factory portfolio',
 		latestRelease: {
 			label: 'Latest repository update',
-			date: '2026-05-19',
+			date: '2026-09-01',
 			summary:
-				'The current build joins a graph-backed data model with provider fallback and caching.',
-			href: 'https://github.com/thinkingsage/rhiza/commits/main'
+				'The alpha is complete and self-consistent across eleven skills, five agents, and seven standalone scripts, with CI conformance and an end-to-end fixture run.',
+			href: 'https://github.com/thinkingsage/Datalinks/commits/main'
 		},
 		factoryContribution:
-			'Developed reusable patterns for graph-backed AI analysis, semantic clustering, provider fallback, and inspectable visual explanation.',
+			'Developed reusable patterns for deterministic projections over model output, rubric-gated extraction with recorded verdicts, and bounded unattended maintenance that aborts rather than truncates.',
 		stages: ['Specify', 'Generate', 'Verify'],
-		tags: ['SvelteKit', 'FastAPI', 'Neo4j'],
+		tags: ['Python', 'Zotero', 'Agent knowledge'],
 		links: [
-			{ label: 'View source', href: 'https://github.com/thinkingsage/rhiza', kind: 'source' }
+			{
+				label: 'View source',
+				href: 'https://github.com/thinkingsage/Datalinks',
+				kind: 'source'
+			},
+			{
+				label: 'Design document',
+				href: 'https://github.com/thinkingsage/Datalinks/blob/main/docs/design.md',
+				kind: 'docs'
+			}
 		],
 		featured: true
 	}
