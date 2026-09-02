@@ -149,8 +149,8 @@ Software conceived, built, and maintained by sXs.
 Examples:
 
 - PerfectStar 2K
-- World Monitor · sXs
-- Rhiza
+- Archipelago
+- Datalinks
 
 Owned products create direct value, prove the factory across categories, and build a portfolio of
 intellectual property.
@@ -203,7 +203,7 @@ Use the masterbrand as an endorsement:
 
 - **PerfectStar 2K — by sXs**
 - **Kanon — an sXs factory capability**
-- **World Monitor — an sXs system**
+- **Archipelago — an sXs system**
 - **Boundary Review — sXs advisory**
 
 The relationship among sXs, Thinking Sage, Kryptik Research, and personal work must be explicit.
@@ -558,8 +558,8 @@ Do not rank the work only by AI relevance. Organize it by role in the factory:
 #### Products
 
 - PerfectStar 2K
-- World Monitor · sXs
-- Rhiza
+- Archipelago
+- Datalinks
 
 #### Factory capabilities
 

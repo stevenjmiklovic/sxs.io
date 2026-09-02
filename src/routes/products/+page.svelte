@@ -47,9 +47,9 @@
 		</blockquote>
 		<div>
 			<p>
-				PerfectStar 2K, World Monitor, and Rhiza occupy different categories. Their shared evidence
-				is a factory that can turn a product intention into software with a coherent operating
-				model.
+				PerfectStar 2K, Archipelago, and Datalinks occupy different categories. Their shared
+				evidence is a factory that can turn a product intention into software with a coherent
+				operating model.
 			</p>
 			<a class="text-link" href="/factory">See the production system →</a>
 		</div>
