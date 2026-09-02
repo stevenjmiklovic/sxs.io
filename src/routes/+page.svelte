@@ -150,7 +150,7 @@ Relevant repository or brief:`);
 			<div class="section-heading__content">
 				<h2 id="products-title">The software is the output.</h2>
 				<p>
-					Original products and maintained variants built for real use. AI may be inside the
+					No two of these products share a language, a runtime, or an audience. AI may be inside the
 					product—or only inside the production system that made it.
 				</p>
 			</div>
