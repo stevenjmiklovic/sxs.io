@@ -7,14 +7,14 @@
 
 <Seo
 	title="Products"
-	description="Products and research systems built through the sXs AI software factory."
+	description="A Rust writing environment, an Elixir federation engine, and a Python research wiki. Unrelated categories, one production system: the sXs AI software factory."
 	path="/products"
 />
 
 <PageIntro
-	eyebrow="Factory output"
-	title="Products with a point of view."
-	description="Original software and maintained variants built for real use. The product value leads; the factory is the accountable production system behind it."
+	eyebrow="Owned products"
+	title="The range is the evidence."
+	description="A keyboard-first writing environment in Rust. A federated text-world engine in Elixir. A research wiki that refuses to cite itself. Unrelated categories, one production system — and not one of them sells you a model."
 />
 
 <section class="section product-index" aria-labelledby="product-index-title">
@@ -47,9 +47,9 @@
 		</blockquote>
 		<div>
 			<p>
-				PerfectStar 2K, Archipelago, and Datalinks occupy different categories. Their shared
-				evidence is a factory that can turn a product intention into software with a coherent
-				operating model.
+				No two of these share a language, a runtime, or a user. What they share is how they were
+				specified, verified, and shipped — and that is the only thing the factory carries between
+				them.
 			</p>
 			<a class="text-link" href="/factory">See the production system →</a>
 		</div>
