@@ -31,6 +31,13 @@
 		background: var(--cobalt);
 	}
 
+	/* Maintained reads as live but not growing: same hue, hollow centre. Without
+	   this it is pixel-identical to Live. */
+	.status[data-status='maintained'] i {
+		background: transparent;
+		box-shadow: inset 0 0 0 2px var(--signal-deep);
+	}
+
 	.status[data-status='archived'] i {
 		background: var(--graphite);
 	}

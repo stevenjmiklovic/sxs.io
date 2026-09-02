@@ -64,6 +64,7 @@ Relevant repository or brief:`);
 			<p class="hero__description">
 				sXs builds products, reusable capabilities, and selected client software through a
 				production system that combines explicit specification with model-driven execution.
+				Verification and accountable judgment decide what ships.
 			</p>
 			<div class="page-actions">
 				<a href="/products" class="btn btn--primary">See what the factory makes →</a>
@@ -131,12 +132,9 @@ Relevant repository or brief:`);
 				<p>What changed</p>
 				<span>{latestShipment.latestRelease.summary}</span>
 				<div>
-					<a href={latestShipment.latestRelease.href} target="_blank" rel="noopener noreferrer"
-						>Release ↗</a
-					>
-					<a href={latestShipment.links[0].href} target="_blank" rel="noopener noreferrer"
-						>Source ↗</a
-					>
+					{#each latestShipment.links.slice(0, 2) as link}
+						<a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>
+					{/each}
 				</div>
 			</div>
 		</div>
@@ -150,7 +148,7 @@ Relevant repository or brief:`);
 			<div class="section-heading__content">
 				<h2 id="products-title">The software is the output.</h2>
 				<p>
-					Original products and maintained variants built for real use. AI may be inside the
+					No two of these products share a language, a runtime, or an audience. AI may be inside the
 					product—or only inside the production system that made it.
 				</p>
 			</div>
