@@ -2,7 +2,11 @@
 	import PageIntro from '$lib/components/ui/PageIntro.svelte';
 	import PortfolioCard from '$lib/components/ui/PortfolioCard.svelte';
 	import Seo from '$lib/components/ui/Seo.svelte';
+	import StatusLabel from '$lib/components/ui/StatusLabel.svelte';
 	import { products } from '$lib/data/portfolio';
+
+	// Derived so the key can only ever describe states the index actually contains.
+	const statusesInUse = [...new Set(products.map((product) => product.status))];
 </script>
 
 <Seo
@@ -25,9 +29,9 @@
 				<h2 id="product-index-title">{products.length} current systems</h2>
 			</div>
 			<div class="status-key" aria-label="Portfolio status key">
-				<span><i class="live"></i> Live</span>
-				<span><i class="building"></i> Building</span>
-				<span><i class="maintained"></i> Maintained</span>
+				{#each statusesInUse as status}
+					<StatusLabel label={status} />
+				{/each}
 			</div>
 		</header>
 
@@ -93,23 +97,6 @@
 		font-size: 0.56rem;
 		text-transform: uppercase;
 		color: var(--graphite);
-	}
-
-	.status-key span {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-	}
-
-	.status-key i {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--signal-deep);
-	}
-
-	.status-key i.building {
-		background: var(--cobalt);
 	}
 
 	.portfolio-index {

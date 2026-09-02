@@ -79,6 +79,20 @@ export const factoryEvidence = [
 		description:
 			'The capability makes its workflow, invariants, decision states, and edge cases inspectable.',
 		href: 'https://github.com/thinkingsage/adr-power/blob/main/POWER.md'
+	},
+	{
+		type: 'Boundary',
+		title: 'Archipelago status boundary',
+		description:
+			'The project states which subsystems run today and which remain unfinished, so its documentation cannot be read as a shipping claim.',
+		href: 'https://eventide.cc/archipelago/'
+	},
+	{
+		type: 'Verification',
+		title: 'Datalinks corpus invariants',
+		description:
+			'Six invariants are stated once and enforced by a validator, so a generated wiki cannot cite its own reasoning as a source.',
+		href: 'https://github.com/thinkingsage/Datalinks/blob/main/scripts/validate.py'
 	}
 ];
 

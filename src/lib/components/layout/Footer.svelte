@@ -2,9 +2,9 @@
 	const year = new Date().getFullYear();
 
 	const links = [
-		{ label: 'Personal', href: 'https://github.com/stevenjmiklovic' },
 		{ label: 'Thinking Sage', href: 'https://github.com/thinkingsage' },
-		{ label: 'Kryptik Research', href: 'https://github.com/kryptik-research' }
+		{ label: 'Kryptik Research', href: 'https://github.com/kryptik-research' },
+		{ label: 'Steven J. Miklovic', href: 'https://github.com/stevenjmiklovic' }
 	];
 </script>
 
@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="footer-ledger">
-			<p>Factory network</p>
+			<p>Where the work originates</p>
 			<div>
 				{#each links as link}
 					<a href={link.href} target="_blank" rel="noopener noreferrer">

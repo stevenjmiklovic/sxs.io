@@ -8,7 +8,7 @@ import svelteConfig from './svelte.config.js';
 
 export default [
 	{
-		ignores: ['.svelte-kit/**', 'build/**', 'node_modules/**']
+		ignores: ['.svelte-kit/**', 'build/**', 'dist/**', 'node_modules/**']
 	},
 	js.configs.recommended,
 	...ts.configs.recommended,

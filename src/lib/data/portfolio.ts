@@ -14,6 +14,11 @@ export interface PortfolioRelease {
 	date: string;
 	summary: string;
 	href: string;
+	/**
+	 * True only when the label names a published, versioned release. Repository
+	 * activity is not a shipment and must not be presented as one.
+	 */
+	versioned?: boolean;
 }
 
 export interface PortfolioItem {
@@ -88,7 +93,8 @@ export const products: PortfolioItem[] = [
 			date: '2026-08-21',
 			summary:
 				'The current release runs the local realm end to end, with federation foundations and sea travel in place.',
-			href: 'https://eventide.cc/archipelago/'
+			href: 'https://eventide.cc/archipelago/',
+			versioned: true
 		},
 		factoryContribution:
 			'Extended the factory’s patterns for event-sourced state, content-as-data authoring pipelines, capability-scoped authority, and protocol work with an explicitly marked implementation boundary.',
@@ -165,7 +171,8 @@ export const capabilities: PortfolioItem[] = [
 			date: '2026-07-24',
 			summary:
 				'The current release compiles a catalog of knowledge artifacts across eight supported harnesses.',
-			href: 'https://github.com/thinkingsage/context-bazaar/releases/tag/v0.5.0'
+			href: 'https://github.com/thinkingsage/context-bazaar/releases/tag/v0.5.0',
+			versioned: true
 		},
 		factoryContribution:
 			'Makes production knowledge portable: author once, validate centrally, and adapt to each agent environment without duplicating the source.',
@@ -272,7 +279,16 @@ export const capabilities: PortfolioItem[] = [
 ];
 
 export const portfolio = [...products, ...capabilities];
-export const latestShipment = capabilities[0];
+
+/**
+ * The most recent versioned release across the portfolio. Restricted to
+ * versioned releases so the homepage never advertises a repository commit as a
+ * shipment.
+ */
+export const latestShipment =
+	portfolio
+		.filter((item) => item.latestRelease.versioned)
+		.sort((a, b) => b.latestRelease.date.localeCompare(a.latestRelease.date))[0] ?? portfolio[0];
 
 export function getPortfolioItem(slug: string) {
 	return portfolio.find((item) => item.slug === slug);
