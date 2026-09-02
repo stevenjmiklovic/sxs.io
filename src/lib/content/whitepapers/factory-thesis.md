@@ -1,12 +1,12 @@
-# The Factory Thesis
-
-**Why specification, verification, and retained capability — not model capability — decide what an AI-native production system can ship**
-
-**Version:** 1.0 · September 2026
-**Author:** Steven J. Miklovic · sXs (symbolic × subsymbolic)
-**Status:** Living document. Superseded sections are revised, not deleted.
-**Companion surfaces:** [sxs.io/factory](https://sxs.io/factory) · [`BRAND_STRATEGY.md`](../BRAND_STRATEGY.md)
-
+---
+slug: 'factory-thesis'
+title: 'The Factory Thesis'
+subtitle: 'Why specification, verification, and retained capability — not model capability — decide what an AI-native production system can ship'
+summary: 'The published research on AI-assisted development does not converge on an effect size. That dispersion is the finding, and it locates the variance in the production system rather than the model.'
+version: '1.0'
+publishedAt: '2026-09-02'
+status: 'Living document. Superseded sections are revised, not deleted.'
+referenceCount: 25
 ---
 
 ## Summary
@@ -275,7 +275,7 @@ The software ships. The factory compounds. Both are meant to be checked.
 21. GitClear. _AI Code Quality Research: 211 million changed lines, 2021–2025._ <https://gitkraken.gitclear.com/recent_ai_developer_productivity_code_quality_research>
 22. GitClear. _The Maintainability Gap: 2026 AI Code Quality Research._ <https://gitkraken.gitclear.com/write_only_mode_ai_research>
 23. Cohen, W. M., Levinthal, D. A. "Absorptive Capacity: A New Perspective on Learning and Innovation." _Administrative Science Quarterly_ 35(1), 1990, pp. 128–152. doi:10.2307/2393553 <https://doi.org/10.2307/2393553>
-24. Teece, D. J., Pisano, G., Shuen, A. "Dynamic Capabilities and Strategic Management." _Strategic Management Journal_ 18(7), 1997, pp. 509–533. doi:10.1002/(SICI)1097-0266(199708)18:7<509::AID-SMJ882>3.0.CO;2-Z
+24. Teece, D. J., Pisano, G., Shuen, A. "Dynamic Capabilities and Strategic Management." _Strategic Management Journal_ 18(7), 1997, pp. 509–533. `doi:10.1002/(SICI)1097-0266(199708)18:7<509::AID-SMJ882>3.0.CO;2-Z`
 25. Bainbridge, L. "Ironies of Automation." _Automatica_ 19(6), 1983, pp. 775–779. doi:10.1016/0005-1098(83)90046-8 <https://doi.org/10.1016/0005-1098(83)90046-8>
 
 ---
